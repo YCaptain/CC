@@ -41,7 +41,30 @@ public class ClubManagementController {
 	@Autowired
 	private AreaService areaService;
 
-	@RequestMapping(value="/getclubinitinfo", method=RequestMethod.GET)
+	@RequestMapping(value = "/getclubbyid", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getClubById(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		Long clubId = HttpServletRequestUtil.getLong(request, "clubId");
+		if (clubId > -1) {
+			try {
+				Club club = clubService.getByClubId(clubId);
+				List<Area> areaList = areaService.getAreaList();
+				modelMap.put("club", club);
+				modelMap.put("areaList", areaList);
+				modelMap.put("success", true);
+			} catch (Exception e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.toString());
+			}
+		} else {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "empty clubId");
+		}
+		return modelMap;
+	}
+
+	@RequestMapping(value = "/getclubinitinfo", method = RequestMethod.GET)
 	@ResponseBody
 	private Map<String, Object> getClubInitInfo() {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
@@ -64,7 +87,7 @@ public class ClubManagementController {
 	@ResponseBody
 	private Map<String, Object> registerClub(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
-		if (!CodeUtil.chekcVerifyCode(request)) {
+		if (!CodeUtil.checkVerifyCode(request)) {
 			modelMap.put("success", false);
 			modelMap.put("errMsg", "验证码错误");
 			return modelMap;
@@ -93,15 +116,21 @@ public class ClubManagementController {
 		}
 		// 2.注册社团
 		if (club != null && clubImg != null) {
-			PersonInfo captain = new PersonInfo();
-			// Session TODO
-			captain.setUserId(1L);
+			PersonInfo captain = (PersonInfo) request.getSession().getAttribute("user");
 			club.setCaptain(captain);
 			ClubExecution clubExecution;
 			try {
 				clubExecution = clubService.addClub(club, clubImg.getInputStream(), clubImg.getOriginalFilename());
 				if (clubExecution.getState() == ClubStateEnum.CHECK.getState()) {
 					modelMap.put("success", true);
+					// 该用户可操作的社团列表
+					@SuppressWarnings("unchecked")
+					List<Club> clubList = (List<Club>) request.getSession().getAttribute("clubList");
+					if (clubList == null || clubList.size() == 0) {
+						clubList = new ArrayList<Club>();
+					}
+					clubList.add(clubExecution.getClub());
+					request.getSession().setAttribute("clubList", clubList);
 				} else {
 					modelMap.put("success", false);
 					modelMap.put("errMsg", clubExecution.getStateInfo());
@@ -121,31 +150,63 @@ public class ClubManagementController {
 			modelMap.put("errMsg", "请输入社团信息");
 			return modelMap;
 		}
-		// 3.返回结果
 	}
 
-	/*	private static void inputStreamToFile(InputStream ins, File file) {
-		FileOutputStream os = null;
-		try {
-			os = new FileOutputStream(file);
-			int bytesRead = 0;
-			byte[] buffer = new byte[1024];
-			while ((bytesRead = ins.read(buffer)) != -1) {
-				os.write(buffer, 0, bytesRead);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException("调用inputStreamToFile产生异常: " + e.getMessage());
-		} finally {
-			try {
-				if (os != null) {
-					os.close();
-				}
-				if (ins != null) {
-					ins.close();
-				}
-			} catch (IOException e) {
-				throw new RuntimeException("inputStreamToFile关闭io产生异常: " + e.getMessage());
-			}
+	@RequestMapping(value = "/modifyclub", method = RequestMethod.POST)
+	@ResponseBody
+	private Map<String, Object> modifyClub(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		if (!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "验证码错误");
+			return modelMap;
 		}
-	}*/
+		// 1.接收并转化相应的参数，包括社团信息以及图片信息
+		String clubStr = HttpServletRequestUtil.getString(request, "clubStr");
+		ObjectMapper mapper = new ObjectMapper();
+		Club club = null;
+		try {
+			club = mapper.readValue(clubStr, Club.class);
+		} catch (Exception e) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", e.getMessage());
+			return modelMap;
+		}
+		CommonsMultipartFile clubImg = null;
+		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(
+				request.getSession().getServletContext());
+		if (commonsMultipartResolver.isMultipart(request)) {
+			MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+			clubImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("clubImg");
+		}
+		// 2.修改社团信息
+		if (club != null && club.getClubId() != null) {
+			ClubExecution clubExecution;
+			try {
+				if (clubImg == null) {
+					clubExecution = clubService.modifyClub(club, null, null);
+				} else {
+					clubExecution = clubService.modifyClub(club, clubImg.getInputStream(),
+							clubImg.getOriginalFilename());
+				}
+				if (clubExecution.getState() == ClubStateEnum.SUCCESS.getState()) {
+					modelMap.put("success", true);
+				} else {
+					modelMap.put("success", false);
+					modelMap.put("errMsg", clubExecution.getStateInfo());
+				}
+			} catch (ClubOperationException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+			} catch (IOException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());
+			}
+			return modelMap;
+		} else {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "请输入社团Id");
+			return modelMap;
+		}
+	}
 }

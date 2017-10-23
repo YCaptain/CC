@@ -109,4 +109,22 @@ public class ImageUtil {
 		.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.png")), 0.5f)
 		.outputQuality(0.8f).toFile("D:/学习/项目/9.2017/社团管理系统/testImgNew.jpg");
 	}
+
+	/**
+	 * storePath是文件路径则删除该文件
+	 * 是目录路径则删除该目录下所有文件
+	 * @param storePath
+	 */
+	public static void deleteFileOrPath(String storePath) {
+		File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+		if (fileOrPath.exists()) {
+			if (fileOrPath.isDirectory()) {
+				File files[] = fileOrPath.listFiles();
+				for (int i=0; i < files.length; i++) {
+					files[i].delete();
+				}
+			}
+			fileOrPath.delete();
+		}
+	}
 }

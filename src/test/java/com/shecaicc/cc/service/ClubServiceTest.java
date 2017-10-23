@@ -18,13 +18,25 @@ import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.entity.ClubCategory;
 import com.shecaicc.cc.entity.PersonInfo;
 import com.shecaicc.cc.enums.ClubStateEnum;
+import com.shecaicc.cc.exceptions.ClubOperationException;
 
 public class ClubServiceTest extends BaseTest {
 	@Autowired
 	private ClubService clubService;
 
 	@Test
-	public void testAddClub() throws FileNotFoundException {
+	public void testModifyClub() throws FileNotFoundException {
+		Club club = new Club();
+		club.setClubId(12L);
+		club.setClubName("修改后的社团名称");
+		File clubImg = new File("D:\\学习\\素材\\shock.jpg");
+		InputStream is = new FileInputStream(clubImg);
+		ClubExecution clubExecution = clubService.modifyClub(club, is, "shock.jpg");
+		System.out.println("新的图片地址为: " + clubExecution.getClub().getClubImg());
+	}
+
+	@Test
+	public void testAddClub() throws ClubOperationException, FileNotFoundException {
 		Club club = new Club();
 		PersonInfo captain = new PersonInfo();
 		Area area = new Area();

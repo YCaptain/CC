@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +18,14 @@ public class ClubDaoTest extends BaseTest {
 	private ClubDao clubDao;
 
 	@Test
-	@Ignore
+	public void testQueryByClubId() {
+		long clubId = 12;
+		Club club = clubDao.queryByClubId(clubId);
+		System.out.println("areaId: " + club.getArea().getAreaId());
+		System.out.println("areaName: " + club.getArea().getAreaName());
+	}
+
+	@Test
 	public void testInsertClub() {
 		Club club = new Club();
 		PersonInfo captain = new PersonInfo();

@@ -23,7 +23,8 @@ public class ClubServiceImpl implements ClubService {
 
 	@Override
 	@Transactional
-	public ClubExecution addClub(Club club, InputStream clubImgInputStream, String fileName) throws ClubOperationException {
+	public ClubExecution addClub(Club club, InputStream clubImgInputStream, String fileName)
+			throws ClubOperationException {
 		// 控制判断
 		if (club == null) {
 			return new ClubExecution(ClubStateEnum.NULL_CLUB);
@@ -64,6 +65,41 @@ public class ClubServiceImpl implements ClubService {
 		String dest = PathUtil.getClubImagePath(club.getClubId());
 		String clubImgAddr = ImageUtil.generateThumbnail(clubImgInputStream, fileName, dest);
 		club.setClubImg(clubImgAddr);
+	}
+
+	@Override
+	public Club getByClubId(long clubId) {
+		return clubDao.queryByClubId(clubId);
+	}
+
+	@Override
+	public ClubExecution modifyClub(Club club, InputStream clubImgInputStream, String fileName)
+			throws ClubOperationException {
+		if (club == null || club.getClubId() == null) {
+			return new ClubExecution(ClubStateEnum.NULL_CLUB);
+		} else {
+			try {
+				// 1.判断是否需要处理图片
+				if (clubImgInputStream != null && fileName != null && !"".equals(fileName)) {
+					Club tempClub = clubDao.queryByClubId(club.getClubId());
+					if (tempClub.getClubImg() != null) {
+						ImageUtil.deleteFileOrPath(tempClub.getClubImg());
+					}
+					addClubImg(club, clubImgInputStream, fileName);
+				}
+				// 2.更新社团信息
+				club.setLastEditTime(new Date());
+				int effectedNum = clubDao.updateClub(club);
+				if (effectedNum <= 0) {
+					return new ClubExecution(ClubStateEnum.INNER_ERROR);
+				} else {
+					club = clubDao.queryByClubId(club.getClubId());
+					return new ClubExecution(ClubStateEnum.SUCCESS, club);
+				}
+			} catch (Exception e) {
+				throw new ClubOperationException("modifyClub error: " + e.getMessage());
+			}
+		}
 	}
 
 }

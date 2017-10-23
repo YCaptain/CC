@@ -3,33 +3,93 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shecaicc.cc.dao.ClubDao">
+	<resultMap type="com.shecaicc.cc.entity.Club" id="clubMap">
+		<id column="club_id" property="clubId" />
+		<result column="club_name" property="clubName" />
+		<result column="club_desc" property="clubDesc" />
+		<result column="club_addr" property="clubAddr" />
+		<result column="phone" property="phone" />
+		<result column="club_img" property="clubImg" />
+		<result column="priority" property="priority" />
+		<result column="create_time" property="createTime" />
+		<result column="last_edit_time" property="lastEditTime" />
+		<result column="enable_status" property="enableStatus" />
+		<result column="advice" property="advice" />
+		<association property="area" column="area_id"
+			javaType="com.shecaicc.cc.entity.Area">
+			<id column="area_id" property="areaId" />
+			<result column="area_name" property="areaName" />
+		</association>
+		<association property="clubCategory" column="club_category_id"
+			javaType="com.shecaicc.cc.entity.ClubCategory">
+			<id column="club_category_id" property="clubCategoryId" />
+			<result column="club_category_name" property="clubCategoryName" />
+		</association>
+		<association property="captain" column="user_id"
+			javaType="com.shecaicc.cc.entity.PersonInfo">
+			<id column="user_id" property="userId" />
+			<result column="name" property="name" />
+		</association>
+	</resultMap>
+	<select id="queryByClubId" resultMap="clubMap" parameterType="Long">
+		SELECT
+		c.club_id,
+		c.club_name,
+		c.club_desc,
+		c.club_addr,
+		c.phone,
+		c.club_img,
+		c.priority,
+		c.create_time,
+		c.last_edit_time,
+		c.enable_status,
+		c.advice,
+		a.area_id,
+		a.area_name,
+		cc.club_category_id,
+		cc.club_category_name
+		FROM
+		tb_club c,
+		tb_area a,
+		tb_club_category cc
+		WHERE
+		c.area_id = a.area_id
+		AND
+		c.club_category_id = cc.club_category_id
+		AND
+		c.club_id = #{clubId}
+	</select>
 	<insert id="insertClub" useGeneratedKeys="true" keyColumn="club_id"
 		keyProperty="clubId">
 		INSERT INTO
-		tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr,
-		phone, club_img, priority, create_time, last_edit_time, enable_status,
+		tb_club(captain_id, area_id, club_category_id,
+		club_name, club_desc, club_addr,
+		phone, club_img, priority,
+		create_time, last_edit_time, enable_status,
 		advice)
 		VALUES
-		(#{captain.userId}, #{area.areaId}, #{clubCategory.clubCategoryId}, #{clubName},
-		#{clubDesc}, #{clubAddr}, #{phone}, #{clubImg}, #{priority},
+		(#{captain.userId}, #{area.areaId}, #{clubCategory.clubCategoryId},
+		#{clubName},
+		#{clubDesc}, #{clubAddr}, #{phone}, #{clubImg},
+		#{priority},
 		#{createTime}, #{lastEditTime},
 		#{enableStatus}, #{advice})
 	</insert>
 	<update id="updateClub" parameterType="com.shecaicc.cc.entity.Club">
-	    UPDATE tb_club
-	    <set>
-	        <if test="clubName != null">club_Name=#{clubName},</if>
-	        <if test="clubDesc != null">club_desc=#{clubDesc},</if>
-	        <if test="clubAddr != null">club_addr=#{clubAddr},</if>
-	        <if test="phone != null">phone=#{phone},</if>
-	        <if test="clubImg != null">club_img=#{clubImg},</if>
-	        <if test="priority != null">priority=#{priority},</if>
-	        <if test="lastEditTime != null">last_edit_time=#{lastEditTime},</if>
-	        <if test="enableStatus != null">enable_status=#{enableStatus},</if>
-	        <if test="advice != null">advice=#{advice},</if>
-	        <if test="area != null">area_id=#{area.areaId},</if>
-	        <if test="clubCategory != null">club_category_id=#{clubCategory.clubCategoryId}</if>
-	    </set>
-	    WHERE club_id=#{clubId}
+		UPDATE tb_club
+		<set>
+			<if test="clubName != null">club_Name=#{clubName},</if>
+			<if test="clubDesc != null">club_desc=#{clubDesc},</if>
+			<if test="clubAddr != null">club_addr=#{clubAddr},</if>
+			<if test="phone != null">phone=#{phone},</if>
+			<if test="clubImg != null">club_img=#{clubImg},</if>
+			<if test="priority != null">priority=#{priority},</if>
+			<if test="lastEditTime != null">last_edit_time=#{lastEditTime},</if>
+			<if test="enableStatus != null">enable_status=#{enableStatus},</if>
+			<if test="advice != null">advice=#{advice},</if>
+			<if test="area != null">area_id=#{area.areaId},</if>
+			<if test="clubCategory != null">club_category_id=#{clubCategory.clubCategoryId}</if>
+		</set>
+		WHERE club_id=#{clubId}
 	</update>
 </mapper>
