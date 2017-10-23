@@ -1,14 +1,16 @@
 package com.shecaicc.cc.util;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class InitDB {
 
 	public static void main(String[] args) {
-		createDatabase();
-		createTables();
-		// dropDatabase();
+		//createDatabase();
+		//createTables();
+		//dropDatabase();
+		insertDataClubCategory();
 	}
 
 	public static void createDatabase() {
@@ -54,7 +56,7 @@ public class InitDB {
 
 			String sql = "CREATE TABLE `tb_area`(" + "`area_id` INT(6) NOT NULL AUTO_INCREMENT,"
 					+ "`area_name` VARCHAR(200) NOT NULL," + "`priority` INT(3) NOT NULL DEFAULT '0',"
-					+ "`creat_time` DATETIME DEFAULT NULL," + "`last_edit_time` DATETIME DEFAULT NULL,"
+					+ "`create_time` DATETIME DEFAULT NULL," + "`last_edit_time` DATETIME DEFAULT NULL,"
 					+ "PRIMARY KEY (`area_id`)," + "UNIQUE KEY `UK_AREA`(`area_name`)"
 					+ ")ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
 			st.execute(sql);
@@ -129,11 +131,11 @@ public class InitDB {
 					+ "`captain_id` INT(15) NOT NULL,"
 					+ "`area_id` INT(6) DEFAULT NULL,"
 					+ "`club_category_id` INT(11) DEFAULT NULL,"
-					+ "`club_category_name` VARCHAR(256) NOT NULL,"
-					+ "`club_category_desc` VARCHAR(1024) DEFAULT NULL,"
-					+ "`club_category_addr` VARCHAR(200) DEFAULT NULL,"
+					+ "`club_name` VARCHAR(256) NOT NULL,"
+					+ "`club_desc` VARCHAR(1024) DEFAULT NULL,"
+					+ "`club_addr` VARCHAR(200) DEFAULT NULL,"
 					+ "`phone` VARCHAR(128) DEFAULT NULL,"
-					+ "`logo_img` VARCHAR(1024) DEFAULT NULL,"
+					+ "`club_img` VARCHAR(1024) DEFAULT NULL,"
 					+ "`priority` INT(3) DEFAULT '0',"
 					+ "`create_time` DATETIME DEFAULT NULL,"
 					+ "`last_edit_time` DATETIME DEFAULT NULL,"
@@ -198,6 +200,71 @@ public class InitDB {
 			e.printStackTrace();
 		} finally {
 			JdbcUtils.free(null, st, con);
+		}
+	}
+
+	public static void insertDataArea() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = JdbcUtils.getConnection();
+			String sql = "INSERT INTO `tb_area` ("
+					+ "`area_id`, `area_name`, `priority`, `create_time`, `last_edit_time`) "
+					+ "VALUES (?,?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, 2);
+			ps.setString(2, "上海");
+			ps.setInt(3, 40);
+			java.util.Date cTime = new java.util.Date();
+			ps.setDate(4, new java.sql.Date(cTime.getTime()));
+			ps.setDate(5, new java.sql.Date(cTime.getTime()));
+			int count = ps.executeUpdate();
+			System.out.println("Insert data to tb_area: " + count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.free(null, ps, con);
+		}
+	}
+
+	public static void insertDataPersonInfo() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = JdbcUtils.getConnection();
+			String sql = "INSERT INTO `tb_person_info` ("
+					+ "`name`) "
+					+ "VALUES (?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, "test_2");
+			int count = ps.executeUpdate();
+			System.out.println("Insert data to tb_person_info: " + count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.free(null, ps, con);
+		}
+	}
+
+	public static void insertDataClubCategory() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = JdbcUtils.getConnection();
+			String sql = "INSERT INTO `tb_club_category` ("
+					+ "`club_category_name`, `club_category_desc`, `club_category_img`, `priority`) "
+					+ "VALUES (?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, "Arts");
+			ps.setString(2, "Arts club");
+			ps.setString(3, "arts img");
+			ps.setInt(4, 1);
+			int count = ps.executeUpdate();
+			System.out.println("Insert data to tb_club_category: " + count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.free(null, ps, con);
 		}
 	}
 

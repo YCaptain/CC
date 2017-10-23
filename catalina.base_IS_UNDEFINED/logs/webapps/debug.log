@@ -1,0 +1,9 @@
+2017-10-23 10:23:49:378 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-23 10:23:49:510 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 测试的社团3(String), test1(String), test1(String), test1(String), null, null, 2017-10-23 10:23:49.341(Timestamp), 2017-10-23 10:23:49.341(Timestamp), 0(Integer), 审核中(String)
+2017-10-23 10:23:49:525 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
+2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102310234910169.jpg
+2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102310234910169.jpg
+2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-23 10:23:51:141 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
+2017-10-23 10:23:51:154 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 测试的社团3(String), test1(String), test1(String), test1(String), upload\item\club\28\2017102310234910169.jpg(String), 2017-10-23 10:23:49.341(Timestamp), 0(Integer), 审核中(String), 2(Integer), 1(Long), 28(Long)
+2017-10-23 10:23:51:156 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
