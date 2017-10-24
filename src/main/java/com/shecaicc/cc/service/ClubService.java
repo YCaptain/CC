@@ -8,6 +8,15 @@ import com.shecaicc.cc.exceptions.ClubOperationException;
 
 public interface ClubService {
 	/**
+	 * 根据clubCondition分页返回相应社团数据
+	 * @param clubCondition
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 */
+	public ClubExecution getClubList(Club clubCondition, int pageIndex, int pageSize);
+
+	/**
 	 * 通过社团Id获取社团信息
 	 * @param clubId
 	 * @return

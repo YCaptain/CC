@@ -25,6 +25,16 @@ public class ClubServiceTest extends BaseTest {
 	private ClubService clubService;
 
 	@Test
+	public void testGetClubList() {
+		Club clubCondition = new Club();
+		ClubCategory cc = new ClubCategory();
+		cc.setClubCategoryId(2L);
+		ClubExecution ce = clubService.getClubList(clubCondition, 6, 3);
+		System.out.println("社团列表数为: " + ce.getClubList().size());
+		System.out.println("社团总数为: " + ce.getCount());
+	}
+
+	@Test
 	public void testModifyClub() throws FileNotFoundException {
 		Club club = new Club();
 		club.setClubId(12L);

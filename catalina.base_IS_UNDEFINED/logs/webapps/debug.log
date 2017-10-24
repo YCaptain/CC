@@ -1,27 +1,9 @@
-2017-10-23 10:23:49:378 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-23 10:23:49:510 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 测试的社团3(String), test1(String), test1(String), test1(String), null, null, 2017-10-23 10:23:49.341(Timestamp), 2017-10-23 10:23:49.341(Timestamp), 0(Integer), 审核中(String)
-2017-10-23 10:23:49:525 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
-2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102310234910169.jpg
-2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102310234910169.jpg
-2017-10-23 10:23:49:541 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-23 10:23:51:141 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
-2017-10-23 10:23:51:154 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 测试的社团3(String), test1(String), test1(String), test1(String), upload\item\club\28\2017102310234910169.jpg(String), 2017-10-23 10:23:49.341(Timestamp), 0(Integer), 审核中(String), 2(Integer), 1(Long), 28(Long)
-2017-10-23 10:23:51:156 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
-2017-10-23 18:57:25:181 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-23 18:57:25:227 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 1(Long)
-2017-10-23 18:57:25:382 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 0
-2017-10-23 18:58:59:024 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-23 18:58:59:065 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 12(Long)
-2017-10-23 18:58:59:144 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
-2017-10-23 19:29:16:439 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-23 19:29:16:478 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 12(Long)
-2017-10-23 19:29:16:496 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
-2017-10-23 19:29:16:507 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\12\2017102319291690452.jpg
-2017-10-23 19:29:16:507 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\12\2017102319291690452.jpg
-2017-10-23 19:29:16:508 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-23 19:29:16:685 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_img=?, last_edit_time=? WHERE club_id=? 
-2017-10-23 19:29:16:687 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 修改后的社团名称(String), upload\item\club\12\2017102319291690452.jpg(String), 2017-10-23 19:29:16.663(Timestamp), 12(Long)
-2017-10-23 19:29:16:763 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
-2017-10-23 19:29:16:764 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-23 19:29:16:765 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 12(Long)
-2017-10-23 19:29:16:771 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
+2017-10-24 09:22:41:592 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-24 09:22:41:686 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 审核通过的社团1(String), test1(String), test1(String), test1(String), null, null, 2017-10-24 09:22:41.525(Timestamp), 2017-10-24 09:22:41.525(Timestamp), 0(Integer), 审核通过(String)
+2017-10-24 09:22:41:718 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
+2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\29\2017102409224139511.jpg
+2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\29\2017102409224139511.jpg
+2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-24 09:22:43:095 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
+2017-10-24 09:22:43:096 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 审核通过的社团1(String), test1(String), test1(String), test1(String), upload\item\club\29\2017102409224139511.jpg(String), 2017-10-24 09:22:41.525(Timestamp), 0(Integer), 审核通过(String), 2(Integer), 1(Long), 29(Long)
+2017-10-24 09:22:43:098 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1

@@ -41,6 +41,53 @@ public class ClubManagementController {
 	@Autowired
 	private AreaService areaService;
 
+	@RequestMapping(value = "/getclubmanagementinfo", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getClubManagementInfo(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		long clubId = HttpServletRequestUtil.getLong(request, "clubId");
+		if (clubId <= 0) {
+			Object currentClubObj = request.getSession().getAttribute("currentClub");
+			if (currentClubObj == null) {
+				modelMap.put("redirect", true);
+				modelMap.put("url", "/CC/clubadmin/clublist");
+			} else {
+				Club currentClub = (Club) currentClubObj;
+				modelMap.put("redirect", false);
+				modelMap.put("clubId", currentClub.getClubId());
+			}
+		} else {
+			Club currentClub = new Club();
+			currentClub.setClubId(clubId);
+			request.getSession().setAttribute("currentClub", currentClub);
+			modelMap.put("redirect", false);
+		}
+		return modelMap;
+	}
+
+	@RequestMapping(value = "/getclublist", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getClubList(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		PersonInfo user = new PersonInfo();
+		user.setUserId(1L);
+		user.setName("testName");
+		request.getSession().setAttribute("user", user);
+		user = (PersonInfo) request.getSession().getAttribute("user");
+		try {
+			Club clubCondition = new Club();
+			clubCondition.setCaptain(user);
+			ClubExecution ce = clubService.getClubList(clubCondition, 0, 100);
+			modelMap.put("clubList", ce.getClubList());
+			modelMap.put("user", user);
+			modelMap.put("success", true);
+		} catch (Exception e) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", e.getMessage());
+		}
+		return modelMap;
+	}
+
 	@RequestMapping(value = "/getclubbyid", method = RequestMethod.GET)
 	@ResponseBody
 	private Map<String, Object> getClubById(HttpServletRequest request) {

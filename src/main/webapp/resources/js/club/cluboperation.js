@@ -33,7 +33,7 @@ $(function() {
 				$('#club-category').html(clubCategory);
 				$('#club-category').attr('disabled', 'disabled');
 				$('#area').html(tempAreaHtml);
-				$("#area option[data-id='" + club.area.clubId + "']").attr(
+				$("#area option[data-id='" + club.area.areaId + "']").attr(
 						"selected", "selected");
 			}
 		});

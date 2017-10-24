@@ -2,6 +2,7 @@ package com.shecaicc.cc.service.impl;
 
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,28 @@ import com.shecaicc.cc.enums.ClubStateEnum;
 import com.shecaicc.cc.exceptions.ClubOperationException;
 import com.shecaicc.cc.service.ClubService;
 import com.shecaicc.cc.util.ImageUtil;
+import com.shecaicc.cc.util.PageCalculator;
 import com.shecaicc.cc.util.PathUtil;
 
 @Service
 public class ClubServiceImpl implements ClubService {
 	@Autowired
 	private ClubDao clubDao;
+
+	@Override
+	public ClubExecution getClubList(Club clubCondition, int pageIndex, int pageSize) {
+		int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
+		List<Club> clubList = clubDao.queryClubList(clubCondition, rowIndex, pageSize);
+		int count = clubDao.queryClubCount(clubCondition);
+		ClubExecution ce = new ClubExecution();
+		if (clubList != null) {
+			ce.setClubList(clubList);
+			ce.setCount(count);
+		} else {
+			ce.setState(ClubStateEnum.INNER_ERROR.getState());
+		}
+		return ce;
+	}
 
 	@Override
 	@Transactional

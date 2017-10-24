@@ -31,6 +31,89 @@
 			<result column="name" property="name" />
 		</association>
 	</resultMap>
+	<select id="queryClubList" resultMap="clubMap">
+		SELECT
+		c.club_id,
+		c.club_name,
+		c.club_desc,
+		c.club_addr,
+		c.phone,
+		c.club_img,
+		c.priority,
+		c.create_time,
+		c.last_edit_time,
+		c.enable_status,
+		c.advice,
+		a.area_id,
+		a.area_name,
+		cc.club_category_id,
+		cc.club_category_name
+		FROM
+		tb_club c,
+		tb_area a,
+		tb_club_category cc
+		<where>
+			<if
+				test="clubCondition.clubCategory != null and clubCondition.clubCategory.clubCategoryId != null">
+				and c.club_category_id =
+				#{clubCondition.clubCategory.clubCategoryId}
+			</if>
+			<if
+				test="clubCondition.area != null and clubCondition.area.areaId != null">
+				and c.area_id = #{clubCondition.area.areaId}
+			</if>
+			<if test="clubCondition.clubName != null">
+				and c.club_name like '%${clubCondition.clubName}%'
+			</if>
+			<if test="clubCondition.enableStatus != null">
+				and c.enable_status = #{clubCondition.enableStatus}
+			</if>
+			<if
+				test="clubCondition.captain != null and clubCondition.captain.userId != null">
+				and c.captain_id = #{clubCondition.captain.userId}
+			</if>
+			AND
+			c.area_id = a.area_id
+			AND
+			c.club_category_id = cc.club_category_id
+		</where>
+		ORDER BY
+		c.priority DESC
+		LIMIT #{rowIndex}, #{pageSize};
+	</select>
+	<select id="queryClubCount" resultType="int">
+	    SELECT
+	    count(1)
+	    FROM
+	    tb_club c,
+		tb_area a,
+		tb_club_category cc
+		<where>
+			<if
+				test="clubCondition.clubCategory != null and clubCondition.clubCategory.clubCategoryId != null">
+				and c.club_category_id =
+				#{clubCondition.clubCategory.clubCategoryId}
+			</if>
+			<if
+				test="clubCondition.area != null and clubCondition.area.areaId != null">
+				and c.area_id = #{clubCondition.area.areaId}
+			</if>
+			<if test="clubCondition.clubName != null">
+				and c.club_name like '%${clubCondition.clubName}%'
+			</if>
+			<if test="clubCondition.enableStatus != null">
+				and c.enable_status = #{clubCondition.enableStatus}
+			</if>
+			<if
+				test="clubCondition.captain != null and clubCondition.captain.userId != null">
+				and c.captain_id = #{clubCondition.captain.userId}
+			</if>
+			AND
+			c.area_id = a.area_id
+			AND
+			c.club_category_id = cc.club_category_id
+		</where>
+	</select>
 	<select id="queryByClubId" resultMap="clubMap" parameterType="Long">
 		SELECT
 		c.club_id,
