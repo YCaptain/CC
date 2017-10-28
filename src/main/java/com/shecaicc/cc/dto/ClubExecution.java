@@ -6,7 +6,6 @@ import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.enums.ClubStateEnum;
 
 public class ClubExecution {
-
 	// 结果状态
 	private int state;
 	// 状态标识

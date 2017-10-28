@@ -15,9 +15,10 @@ public class Event {
 	private Date createTime;
 	private Date endTime;
 	private Date lastEditTime;
-	// -1.不显示 0.不可参与 1.可参与
+	// 0.下架 1.可参与
 	private Integer enableStatus;
 	private List<EventImg> eventImgList;
+	private EventCategory eventCategory;
 	private Club club;
 
 	public Long getEventId() {
@@ -114,6 +115,14 @@ public class Event {
 
 	public void setEventImgList(List<EventImg> eventImgList) {
 		this.eventImgList = eventImgList;
+	}
+
+	public EventCategory getEventCategory() {
+		return eventCategory;
+	}
+
+	public void setEventCategory(EventCategory eventCategory) {
+		this.eventCategory = eventCategory;
 	}
 
 	public Club getClub() {

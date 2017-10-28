@@ -19,6 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shecaicc.cc.dto.ClubExecution;
+import com.shecaicc.cc.dto.ImageHolder;
 import com.shecaicc.cc.entity.Area;
 import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.entity.ClubCategory;
@@ -167,7 +168,8 @@ public class ClubManagementController {
 			club.setCaptain(captain);
 			ClubExecution clubExecution;
 			try {
-				clubExecution = clubService.addClub(club, clubImg.getInputStream(), clubImg.getOriginalFilename());
+				ImageHolder imageHolder = new ImageHolder(clubImg.getOriginalFilename(), clubImg.getInputStream());
+				clubExecution = clubService.addClub(club, imageHolder);
 				if (clubExecution.getState() == ClubStateEnum.CHECK.getState()) {
 					modelMap.put("success", true);
 					// 该用户可操作的社团列表
@@ -231,10 +233,10 @@ public class ClubManagementController {
 			ClubExecution clubExecution;
 			try {
 				if (clubImg == null) {
-					clubExecution = clubService.modifyClub(club, null, null);
+					clubExecution = clubService.modifyClub(club, null);
 				} else {
-					clubExecution = clubService.modifyClub(club, clubImg.getInputStream(),
-							clubImg.getOriginalFilename());
+					ImageHolder imageHolder = new ImageHolder(clubImg.getOriginalFilename(), clubImg.getInputStream());
+					clubExecution = clubService.modifyClub(club, imageHolder);
 				}
 				if (clubExecution.getState() == ClubStateEnum.SUCCESS.getState()) {
 					modelMap.put("success", true);

@@ -1,6 +1,5 @@
 package com.shecaicc.cc.service.impl;
 
-import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shecaicc.cc.dao.ClubDao;
 import com.shecaicc.cc.dto.ClubExecution;
+import com.shecaicc.cc.dto.ImageHolder;
 import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.enums.ClubStateEnum;
 import com.shecaicc.cc.exceptions.ClubOperationException;
@@ -40,8 +40,7 @@ public class ClubServiceImpl implements ClubService {
 
 	@Override
 	@Transactional
-	public ClubExecution addClub(Club club, InputStream clubImgInputStream, String fileName)
-			throws ClubOperationException {
+	public ClubExecution addClub(Club club, ImageHolder thumbnail) throws ClubOperationException {
 		// 控制判断
 		if (club == null) {
 			return new ClubExecution(ClubStateEnum.NULL_CLUB);
@@ -57,10 +56,10 @@ public class ClubServiceImpl implements ClubService {
 			if (effectedNum <= 0) {
 				throw new ClubOperationException("社团创建失败");
 			} else {
-				if (clubImgInputStream != null) {
+				if (thumbnail.getImage() != null) {
 					// 存储图片
 					try {
-						addClubImg(club, clubImgInputStream, fileName);
+						addClubImg(club, thumbnail);
 					} catch (Exception e) {
 						throw new ClubOperationException("addClubImg error: " + e.getMessage());
 					}
@@ -77,10 +76,10 @@ public class ClubServiceImpl implements ClubService {
 		return new ClubExecution(ClubStateEnum.CHECK, club);
 	}
 
-	private void addClubImg(Club club, InputStream clubImgInputStream, String fileName) {
+	private void addClubImg(Club club, ImageHolder thumbnail) {
 		// 获取club图片目录的相对路径
 		String dest = PathUtil.getClubImagePath(club.getClubId());
-		String clubImgAddr = ImageUtil.generateThumbnail(clubImgInputStream, fileName, dest);
+		String clubImgAddr = ImageUtil.generateThumbnail(thumbnail, dest);
 		club.setClubImg(clubImgAddr);
 	}
 
@@ -90,19 +89,18 @@ public class ClubServiceImpl implements ClubService {
 	}
 
 	@Override
-	public ClubExecution modifyClub(Club club, InputStream clubImgInputStream, String fileName)
-			throws ClubOperationException {
+	public ClubExecution modifyClub(Club club, ImageHolder thumbnail) throws ClubOperationException {
 		if (club == null || club.getClubId() == null) {
 			return new ClubExecution(ClubStateEnum.NULL_CLUB);
 		} else {
 			try {
 				// 1.判断是否需要处理图片
-				if (clubImgInputStream != null && fileName != null && !"".equals(fileName)) {
+				if (thumbnail.getImage() != null && thumbnail.getImageName() != null && !"".equals(thumbnail.getImageName())) {
 					Club tempClub = clubDao.queryByClubId(club.getClubId());
 					if (tempClub.getClubImg() != null) {
 						ImageUtil.deleteFileOrPath(tempClub.getClubImg());
 					}
-					addClubImg(club, clubImgInputStream, fileName);
+					addClubImg(club, thumbnail);
 				}
 				// 2.更新社团信息
 				club.setLastEditTime(new Date());

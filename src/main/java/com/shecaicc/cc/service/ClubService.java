@@ -1,8 +1,7 @@
 package com.shecaicc.cc.service;
 
-import java.io.InputStream;
-
 import com.shecaicc.cc.dto.ClubExecution;
+import com.shecaicc.cc.dto.ImageHolder;
 import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.exceptions.ClubOperationException;
 
@@ -31,7 +30,7 @@ public interface ClubService {
 	 * @return
 	 * @throws ClubOperationException
 	 */
-	ClubExecution modifyClub(Club club, InputStream clubImgInputStream, String fileName) throws ClubOperationException;
+	ClubExecution modifyClub(Club club, ImageHolder thumbnail) throws ClubOperationException;
 
 	/**
 	 * 注册社团信息，包括图片处理
@@ -41,5 +40,5 @@ public interface ClubService {
 	 * @return
 	 * @throws ClubOperationException
 	 */
-	ClubExecution addClub(Club club, InputStream clubImgInputStream, String fileName) throws ClubOperationException;
+	ClubExecution addClub(Club club, ImageHolder thumbnail) throws ClubOperationException;
 }

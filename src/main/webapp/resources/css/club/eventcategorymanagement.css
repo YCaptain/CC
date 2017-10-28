@@ -1,18 +1,16 @@
-.row-club {
+.row-event-category {
 	border: 1px solid #999;
 	padding: .5rem;
 	border-bottom: none;
 }
-
-.row-club:last-child {
+.row-event-category:last-child {
 	border-bottom: 1px solid #999;
 }
-
-.club-name {
+.category-input {
+	border: none;
+	background-color: #eee;
+}
+.event-category-name {
 	white-space: nowrap;
 	overflow-x: scroll;
-}
-
-.club-wrap a {
-	
 }

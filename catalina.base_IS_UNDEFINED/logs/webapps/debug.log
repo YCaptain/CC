@@ -1,9 +1,506 @@
-2017-10-24 09:22:41:592 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-24 09:22:41:686 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 审核通过的社团1(String), test1(String), test1(String), test1(String), null, null, 2017-10-24 09:22:41.525(Timestamp), 2017-10-24 09:22:41.525(Timestamp), 0(Integer), 审核通过(String)
-2017-10-24 09:22:41:718 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
-2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\29\2017102409224139511.jpg
-2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\29\2017102409224139511.jpg
-2017-10-24 09:22:41:759 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-24 09:22:43:095 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
-2017-10-24 09:22:43:096 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 审核通过的社团1(String), test1(String), test1(String), test1(String), upload\item\club\29\2017102409224139511.jpg(String), 2017-10-24 09:22:41.525(Timestamp), 0(Integer), 审核通过(String), 2(Integer), 1(Long), 29(Long)
-2017-10-24 09:22:43:098 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
+2017-10-28 09:29:40:255 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 09:29:40:350 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 09:29:39.547(Timestamp), 1(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 09:29:39.547(Timestamp), 2(Long)
+2017-10-28 09:29:40:624 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 09:29:40:625 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 1(Long)
+2017-10-28 09:29:40:649 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 0
+2017-10-28 09:29:40:652 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 09:29:40:653 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 1(Long)
+2017-10-28 09:29:40:655 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 0
+2017-10-28 09:33:00:912 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 09:33:00:968 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 09:33:00.491(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 09:33:00.491(Timestamp), 9(Long)
+2017-10-28 09:33:01:092 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 09:33:01:104 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 09:33:01:105 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 9(Long)
+2017-10-28 09:33:01:117 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 4
+2017-10-28 09:33:01:126 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 09:33:01:127 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 09:33:01:158 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 4
+2017-10-28 09:33:36:222 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 09:33:36:563 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 09:33:35.849(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 09:33:35.849(Timestamp), 9(Long)
+2017-10-28 09:33:36:627 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 09:33:36:639 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 09:33:36:640 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 9(Long)
+2017-10-28 09:33:36:651 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 2
+2017-10-28 09:33:36:658 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 09:33:36:658 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 09:33:36:728 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
+2017-10-28 10:09:14:692 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:09:14:741 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:09:14.327(Timestamp), 2017-10-28 10:09:14.327(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:09:14:818 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:09:14:828 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:09:14:829 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:09:14.327(Timestamp), 2017-10-28 10:09:14.327(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:09:14:874 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:09:14:874 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:09:14:875 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:09:14.327(Timestamp), 2017-10-28 10:09:14.327(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:09:14:995 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:09:15:034 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:09:15:036 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:09:15.031(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:09:15.031(Timestamp), 9(Long)
+2017-10-28 10:09:15:085 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:09:15:087 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:09:15:087 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:10:57:407 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:10:57:446 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:10:56.984(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:10:56.984(Timestamp), 9(Long)
+2017-10-28 10:10:57:535 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:10:57:554 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 10:10:57:555 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 9(Long)
+2017-10-28 10:10:57:575 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 4
+2017-10-28 10:10:57:584 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:10:57:584 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:10:57:611 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 4
+2017-10-28 10:11:14:515 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:11:14:559 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:11:14.084(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:11:14.084(Timestamp), 9(Long)
+2017-10-28 10:11:14:646 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:11:14:667 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 10:11:14:668 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 9(Long)
+2017-10-28 10:11:14:684 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 2
+2017-10-28 10:11:14:691 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:11:14:691 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:11:14:736 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
+2017-10-28 10:11:22:529 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:11:22:591 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:11:22.178(Timestamp), 2017-10-28 10:11:22.178(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:11:22:722 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:11:22:738 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:11:22:741 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:11:22.178(Timestamp), 2017-10-28 10:11:22.178(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:11:22:791 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:11:22:792 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:11:22:795 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:11:22.178(Timestamp), 2017-10-28 10:11:22.178(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:11:22:869 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:11:22:917 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:11:22:918 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:11:22.914(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:11:22.914(Timestamp), 9(Long)
+2017-10-28 10:11:22:958 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:11:22:960 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:11:22:960 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:12:23:925 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:12:23:980 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:12:23.563(Timestamp), 2017-10-28 10:12:23.563(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:12:24:028 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:12:24:034 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:12:24:036 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:12:23.563(Timestamp), 2017-10-28 10:12:23.563(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:12:24:060 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:12:24:061 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:12:24:063 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:12:23.563(Timestamp), 2017-10-28 10:12:23.563(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:12:24:117 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:12:24:177 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:12:24:179 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:12:24.174(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:12:24.174(Timestamp), 9(Long)
+2017-10-28 10:12:24:338 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:12:24:341 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:12:24:341 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:14:22:390 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:14:22:454 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:14:21.989(Timestamp), 2017-10-28 10:14:21.989(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:14:22:546 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:14:22:570 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:14:22:574 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:14:21.989(Timestamp), 2017-10-28 10:14:21.989(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:14:22:600 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:14:22:601 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:14:22:603 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:14:21.989(Timestamp), 2017-10-28 10:14:21.989(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:14:22:623 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:14:22:657 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC 
+2017-10-28 10:14:22:657 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 
+2017-10-28 10:14:22:674 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 18
+2017-10-28 10:14:22:697 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:14:22:699 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:14:22.694(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:14:22.694(Timestamp), 9(Long)
+2017-10-28 10:14:22:734 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:14:22:735 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:14:22:735 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:18:27:796 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:18:27:845 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:18:27.308(Timestamp), 2017-10-28 10:18:27.308(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:18:27:902 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:18:27:910 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:18:27:912 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:18:27.308(Timestamp), 2017-10-28 10:18:27.308(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:18:27:935 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:18:27:936 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:18:27:937 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:18:27.308(Timestamp), 2017-10-28 10:18:27.308(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:18:27:958 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:18:27:994 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC 
+2017-10-28 10:18:27:994 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 
+2017-10-28 10:18:28:015 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 21
+2017-10-28 10:18:28:029 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:18:28:030 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:18:28.026(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:18:28.026(Timestamp), 9(Long)
+2017-10-28 10:18:28:057 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:18:28:058 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:18:28:058 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:22:50:250 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:50:291 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:22:49.897(Timestamp), 2017-10-28 10:22:49.897(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:50:350 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:50:356 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:50:358 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:22:49.897(Timestamp), 2017-10-28 10:22:49.897(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:50:483 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:50:483 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:50:485 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:22:49.897(Timestamp), 2017-10-28 10:22:49.897(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:50:505 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:50:535 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC 
+2017-10-28 10:22:50:536 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 
+2017-10-28 10:22:50:553 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 24
+2017-10-28 10:22:50:566 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:22:50:568 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:22:50.563(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:22:50.563(Timestamp), 9(Long)
+2017-10-28 10:22:50:618 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:22:50:621 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:22:50:623 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:22:50:648 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 10
+2017-10-28 10:22:56:182 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:56:240 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:22:55.847(Timestamp), 2017-10-28 10:22:55.847(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:56:379 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:56:405 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:56:407 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:22:55.847(Timestamp), 2017-10-28 10:22:55.847(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:56:473 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:56:475 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:22:56:480 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:22:55.847(Timestamp), 2017-10-28 10:22:55.847(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:22:56:506 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:22:56:546 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC 
+2017-10-28 10:22:56:546 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 
+2017-10-28 10:22:56:567 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 27
+2017-10-28 10:22:56:579 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:22:56:580 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:22:56.576(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:22:56.576(Timestamp), 9(Long)
+2017-10-28 10:22:56:606 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:22:56:606 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:22:56:607 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:22:56:617 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 12
+2017-10-28 10:23:50:123 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:23:50:161 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:23:49.773(Timestamp), 2017-10-28 10:23:49.773(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:23:50:254 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:23:50:279 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:23:50:285 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:23:49.773(Timestamp), 2017-10-28 10:23:49.773(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:23:50:308 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:23:50:309 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:23:50:312 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:23:49.773(Timestamp), 2017-10-28 10:23:49.773(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:23:50:331 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:23:50:371 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC 
+2017-10-28 10:23:50:371 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 
+2017-10-28 10:23:50:391 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 30
+2017-10-28 10:23:50:401 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:23:50:402 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:23:50.399(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:23:50.399(Timestamp), 9(Long)
+2017-10-28 10:23:50:418 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:23:50:419 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:23:50:420 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:23:50:427 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 14
+2017-10-28 10:24:41:073 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:24:41:119 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:24:40.726(Timestamp), 2017-10-28 10:24:40.726(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:24:41:167 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:24:41:173 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:24:41:175 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:24:40.726(Timestamp), 2017-10-28 10:24:40.726(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:24:41:199 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:24:41:200 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:24:41:201 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:24:40.726(Timestamp), 2017-10-28 10:24:40.726(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:24:41:322 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:24:41:386 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:24:41:387 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:24:41.383(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:24:41.383(Timestamp), 9(Long)
+2017-10-28 10:24:41:421 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:24:41:423 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:24:41:424 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:24:41:449 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 16
+2017-10-28 10:25:31:685 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:25:31:741 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:25:31.345(Timestamp), 2017-10-28 10:25:31.345(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:25:31:826 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:25:31:852 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:25:31:858 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:25:31.345(Timestamp), 2017-10-28 10:25:31.345(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:25:31:879 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:25:31:881 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:25:31:882 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:25:31.345(Timestamp), 2017-10-28 10:25:31.345(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:25:31:903 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:25:31:951 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:25:31:952 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:25:31.949(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:25:31.949(Timestamp), 9(Long)
+2017-10-28 10:25:31:979 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:25:31:981 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:25:31:981 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:25:31:999 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 18
+2017-10-28 10:28:04:842 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:04:893 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:28:04.488(Timestamp), 2017-10-28 10:28:04.488(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:04:933 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:04:940 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:04:942 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:28:04.488(Timestamp), 2017-10-28 10:28:04.488(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:05:023 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:05:024 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:05:028 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:28:04.488(Timestamp), 2017-10-28 10:28:04.488(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:05:153 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:05:239 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:28:05:240 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:28:05.236(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:28:05.236(Timestamp), 9(Long)
+2017-10-28 10:28:05:277 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:28:05:278 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:28:05:279 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:28:05:306 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 20
+2017-10-28 10:28:44:772 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:44:814 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:28:44.406(Timestamp), 2017-10-28 10:28:44.406(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:44:847 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:44:854 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:44:855 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:28:44.406(Timestamp), 2017-10-28 10:28:44.406(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:44:892 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:44:893 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:28:44:894 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:28:44.406(Timestamp), 2017-10-28 10:28:44.406(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:28:44:913 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:28:44:948 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:28:44:948 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:28:44:968 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:28:44:979 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:28:44:980 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:28:44.976(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:28:44.976(Timestamp), 9(Long)
+2017-10-28 10:28:45:002 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:28:45:003 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:28:45:003 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:28:45:014 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 22
+2017-10-28 10:29:30:933 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:29:30:994 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:29:30.609(Timestamp), 2017-10-28 10:29:30.609(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:29:31:081 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:29:31:103 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:29:31:106 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:29:30.609(Timestamp), 2017-10-28 10:29:30.609(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:29:31:126 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:29:31:127 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:29:31:129 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:29:30.609(Timestamp), 2017-10-28 10:29:30.609(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:29:31:148 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:29:31:186 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:29:31:187 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:29:31:198 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:29:31:203 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:29:31:203 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:29:31:204 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:29:31:211 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:29:31:212 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:29:31.209(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:29:31.209(Timestamp), 9(Long)
+2017-10-28 10:29:31:238 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:29:31:238 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:29:31:239 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:29:31:252 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 24
+2017-10-28 10:30:04:540 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:04:586 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:30:04.185(Timestamp), 2017-10-28 10:30:04.185(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:04:674 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:04:703 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:04:707 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:30:04.185(Timestamp), 2017-10-28 10:30:04.185(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:04:727 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:04:728 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:04:730 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:30:04.185(Timestamp), 2017-10-28 10:30:04.185(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:04:773 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:04:827 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:30:04:827 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:30:04:844 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:30:04:849 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:30:04:850 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:30:04:852 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:30:04:854 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event WHERE event_name like '%测试%' ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:30:04:855 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:30:04:890 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:30:04:896 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:30:04:897 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:30:04.894(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:30:04.894(Timestamp), 9(Long)
+2017-10-28 10:30:04:963 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:30:04:965 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:30:04:966 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:30:05:009 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 26
+2017-10-28 10:30:42:533 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:42:575 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:30:42.167(Timestamp), 2017-10-28 10:30:42.167(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:42:654 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:42:675 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:42:680 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:30:42.167(Timestamp), 2017-10-28 10:30:42.167(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:42:708 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:42:709 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:30:42:710 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:30:42.167(Timestamp), 2017-10-28 10:30:42.167(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:30:42:730 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:30:42:770 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:30:42:771 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:30:42:783 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:30:42:788 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:30:42:788 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:30:42:790 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:30:42:796 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:30:42:797 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:30:42.793(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:30:42.793(Timestamp), 9(Long)
+2017-10-28 10:30:42:819 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:30:42:820 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:30:42:821 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:30:42:832 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 28
+2017-10-28 10:31:22:263 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:22:325 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:31:21.924(Timestamp), 2017-10-28 10:31:21.924(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:22:387 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:22:395 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:22:396 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:31:21.924(Timestamp), 2017-10-28 10:31:21.924(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:22:420 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:22:421 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:22:423 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:31:21.924(Timestamp), 2017-10-28 10:31:21.924(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:22:467 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:22:499 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:31:22:499 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:31:22:514 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:31:22:520 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:31:22:521 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:31:22:522 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:31:22:525 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event WHERE event_name like '%测试%' ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:31:22:526 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:31:22:528 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:31:22:532 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:31:22:532 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:31:22.53(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:31:22.53(Timestamp), 9(Long)
+2017-10-28 10:31:22:554 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:31:22:555 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:31:22:555 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:31:22:572 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 30
+2017-10-28 10:31:46:302 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:46:358 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:31:45.97(Timestamp), 2017-10-28 10:31:45.97(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:46:444 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:46:454 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:46:456 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:31:45.97(Timestamp), 2017-10-28 10:31:45.97(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:46:546 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:46:547 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:31:46:549 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:31:45.97(Timestamp), 2017-10-28 10:31:45.97(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:31:46:624 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:31:46:699 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:31:46:700 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:31:46:714 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:31:46:720 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:31:46:720 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:31:46:722 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:31:46:728 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:31:46:729 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:31:46.725(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:31:46.725(Timestamp), 9(Long)
+2017-10-28 10:31:46:745 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:31:46:746 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:31:46:746 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:31:46:762 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 32
+2017-10-28 10:31:46:762 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:31:46:763 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:31:46:835 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 32
+2017-10-28 10:32:14:991 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:32:15:035 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:32:14.647(Timestamp), 2017-10-28 10:32:14.647(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:32:15:126 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:32:15:142 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:32:15:145 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:32:14.647(Timestamp), 2017-10-28 10:32:14.647(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:32:15:204 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:32:15:206 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:32:15:209 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:32:14.647(Timestamp), 2017-10-28 10:32:14.647(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:32:15:235 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:32:15:298 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:32:15:299 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:32:15:312 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:32:15:317 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:32:15:317 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:32:15:318 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:32:15:326 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:32:15:328 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:32:15.323(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:32:15.323(Timestamp), 9(Long)
+2017-10-28 10:32:15:370 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:32:15:371 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:32:15:371 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:32:15:376 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 2
+2017-10-28 10:32:15:377 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:32:15:377 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:32:15:412 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
+2017-10-28 10:35:34:610 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
+2017-10-28 10:35:34:652 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 第二个活动(String), 6(Long), 28(Long), 28(Long)
+2017-10-28 10:35:34:749 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - <==    Updates: 1
+2017-10-28 10:38:26:747 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
+2017-10-28 10:38:26:785 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 7(Long)
+2017-10-28 10:38:26:787 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 0
+2017-10-28 10:39:41:284 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
+2017-10-28 10:39:41:320 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 6(Long)
+2017-10-28 10:39:41:447 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 60
+2017-10-28 10:40:01:248 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:01:308 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:40:00.918(Timestamp), 2017-10-28 10:40:00.918(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:01:444 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:01:468 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:01:471 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:40:00.918(Timestamp), 2017-10-28 10:40:00.918(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:01:515 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:01:517 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:01:521 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:40:00.918(Timestamp), 2017-10-28 10:40:00.918(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:01:548 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:01:600 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:40:01:601 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:40:01:611 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:40:01:616 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:40:01:616 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:40:01:617 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:40:01:623 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:40:01:624 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:40:01.621(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:40:01.621(Timestamp), 9(Long)
+2017-10-28 10:40:01:672 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:40:01:673 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:40:01:674 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:40:01:680 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 2
+2017-10-28 10:40:01:681 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:40:01:681 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:40:01:715 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
+2017-10-28 10:40:01:719 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
+2017-10-28 10:40:01:720 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 第二个活动(String), 6(Long), 28(Long), 28(Long)
+2017-10-28 10:40:01:784 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - <==    Updates: 1
+2017-10-28 10:40:01:786 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
+2017-10-28 10:40:01:787 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 6(Long)
+2017-10-28 10:40:01:803 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 4
+2017-10-28 10:40:17:858 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:17:915 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-28 10:40:17.513(Timestamp), 2017-10-28 10:40:17.513(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:18:000 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:18:025 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:18:031 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-28 10:40:17.513(Timestamp), 2017-10-28 10:40:17.513(Timestamp), 0(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:18:093 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:18:095 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 10:40:18:101 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-28 10:40:17.513(Timestamp), 2017-10-28 10:40:17.513(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 10:40:18:127 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 10:40:18:176 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
+2017-10-28 10:40:18:177 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
+2017-10-28 10:40:18:189 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
+2017-10-28 10:40:18:194 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
+2017-10-28 10:40:18:195 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
+2017-10-28 10:40:18:196 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
+2017-10-28 10:40:18:202 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 10:40:18:203 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-28 10:40:18.2(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-28 10:40:18.2(Timestamp), 9(Long)
+2017-10-28 10:40:18:227 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 10:40:18:227 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 10:40:18:228 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
+2017-10-28 10:40:18:234 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 2
+2017-10-28 10:40:18:235 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 10:40:18:235 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
+2017-10-28 10:40:18:260 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
+2017-10-28 10:40:18:263 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
+2017-10-28 10:40:18:264 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 第二个活动(String), 6(Long), 28(Long), 28(Long)
+2017-10-28 10:40:18:283 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - <==    Updates: 1
+2017-10-28 10:40:18:286 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
+2017-10-28 10:40:18:287 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 6(Long)
+2017-10-28 10:40:18:305 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 4
+2017-10-28 11:28:28:438 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 11:28:28:465 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 4(Long)
+2017-10-28 11:28:28:482 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 1
+2017-10-28 11:28:28:488 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811282881977.jpg
+2017-10-28 11:28:28:489 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811282881977.jpg
+2017-10-28 11:28:28:489 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:28:29:870 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 11:28:29:872 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 4(Long)
+2017-10-28 11:28:29:876 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 0
+2017-10-28 11:28:29:878 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 11:28:29:879 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 4(Long)
+2017-10-28 11:28:29:883 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 0
+2017-10-28 11:28:29:885 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811282957903.jpg
+2017-10-28 11:28:29:885 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811282957903.jpg
+2017-10-28 11:28:29:885 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:28:30:020 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811283039141.jpg
+2017-10-28 11:28:30:021 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811283039141.jpg
+2017-10-28 11:28:30:021 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:28:30:137 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 11:28:30:141 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: upload\item\club\28\2017102811282957903.jpg(String), null, null, 2017-10-28 11:28:30.02(Timestamp), 4(Long), upload\item\club\28\2017102811283039141.jpg(String), null, null, 2017-10-28 11:28:30.114(Timestamp), 4(Long)
+2017-10-28 11:28:30:176 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 11:28:30:186 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_desc = ?, event_addr = ?, last_edit_time = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
+2017-10-28 11:28:30:187 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 正式的活动(String), 正式的活动(String), upload\item\club\28\2017102811282881977.jpg(String), 2017-10-28 11:28:28.421(Timestamp), 6(Long), 4(Long), 28(Long)
+2017-10-28 11:29:56:853 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
+2017-10-28 11:29:56:881 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 4(Long)
+2017-10-28 11:29:56:897 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 1
+2017-10-28 11:29:56:904 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295646715.jpg
+2017-10-28 11:29:56:904 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295646715.jpg
+2017-10-28 11:29:56:904 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:098 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==>  Preparing: SELECT event_img_id, img_addr, img_desc, priority, create_time, event_id FROM tb_event_img WHERE event_id=? ORDER BY event_img_id ASC 
+2017-10-28 11:29:57:098 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - ==> Parameters: 4(Long)
+2017-10-28 11:29:57:099 [main] DEBUG com.shecaicc.cc.dao.EventImgDao.queryEventImgList - <==      Total: 0
+2017-10-28 11:29:57:100 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
+2017-10-28 11:29:57:100 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 4(Long)
+2017-10-28 11:29:57:101 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 0
+2017-10-28 11:29:57:102 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295769053.jpg
+2017-10-28 11:29:57:102 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295769053.jpg
+2017-10-28 11:29:57:102 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:188 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295726218.jpg
+2017-10-28 11:29:57:188 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295726218.jpg
+2017-10-28 11:29:57:188 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:297 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 11:29:57:299 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: upload\item\club\28\2017102811295769053.jpg(String), null, null, 2017-10-28 11:29:57.188(Timestamp), 4(Long), upload\item\club\28\2017102811295726218.jpg(String), null, null, 2017-10-28 11:29:57.273(Timestamp), 4(Long)
+2017-10-28 11:29:57:337 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
+2017-10-28 11:29:57:372 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_desc = ?, img_addr = ?, last_edit_time = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
+2017-10-28 11:29:57:375 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 正式的活动(String), 正式的活动(String), upload\item\club\28\2017102811295646715.jpg(String), 2017-10-28 11:29:56.828(Timestamp), 6(Long), 4(Long), 28(Long)
+2017-10-28 11:29:57:423 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - <==    Updates: 1
+2017-10-28 11:29:57:518 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295742254.jpg
+2017-10-28 11:29:57:518 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295742254.jpg
+2017-10-28 11:29:57:518 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:612 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-28 11:29:57:615 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试活动1(String), 测试活动1(String), upload\item\club\28\2017102811295742254.jpg(String), 20(Integer), 3(Integer), 20(Integer), 2017-10-28 11:29:57.517(Timestamp), 2017-10-28 11:29:57.517(Timestamp), 1(Integer), 6(Long), 28(Long)
+2017-10-28 11:29:57:617 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
+2017-10-28 11:29:57:618 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295779824.jpg
+2017-10-28 11:29:57:618 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295779824.jpg
+2017-10-28 11:29:57:618 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:745 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: upload\item\club\28\2017102811295775084.jpg
+2017-10-28 11:29:57:746 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017102811295775084.jpg
+2017-10-28 11:29:57:746 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-28 11:29:57:843 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2017-10-28 11:29:57:844 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: upload\item\club\28\2017102811295779824.jpg(String), null, null, 2017-10-28 11:29:57.745(Timestamp), 70(Long), upload\item\club\28\2017102811295775084.jpg(String), null, null, 2017-10-28 11:29:57.842(Timestamp), 70(Long)
+2017-10-28 11:29:57:845 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2

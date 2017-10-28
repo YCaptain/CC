@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shecaicc.cc.dao.EventDao">
+	<resultMap type="com.shecaicc.cc.entity.Event" id="eventMap">
+		<id column="event_id" property="eventId" />
+		<result column="event_name" property="eventName" />
+		<result column="event_desc" property="eventDesc" />
+		<result column="img_addr" property="imgAddr" />
+		<result column="capacity" property="capacity" />
+		<result column="num_person" property="numPerson" />
+		<result column="priority" property="priority" />
+		<result column="create_time" property="createTime" />
+		<result column="last_edit_time" property="lastEditTime" />
+		<result column="enable_status" property="enableStatus" />
+		<association column="event_category_id" property="eventCategory"
+			javaType="com.shecaicc.cc.entity.EventCategory">
+			<id column="event_category_id" property="eventCategoryId" />
+			<result column="event_category_name" property="eventCategoryName" />
+		</association>
+		<association column="club_id" property="club"
+			javaType="com.shecaicc.cc.entity.Club">
+			<id column="club_id" property="clubId" />
+			<result column="captain_id" property="captainId" />
+			<result column="club_name" property="clubName" />
+		</association>
+		<collection column="event_id" property="eventImgList"
+			ofType="com.shecaicc.cc.entity.EventImg">
+			<id column="event_img_id" property="eventImgId" />
+			<result column="img_addr" property="imgAddr" />
+			<result column="img_desc" property="imgDesc" />
+			<result column="priority" property="priority" />
+			<result column="create_time" property="createTime" />
+			<result column="event_id" property="eventId" />
+		</collection>
+	</resultMap>
+	<select id="queryEventList" resultType="com.shecaicc.cc.entity.Event">
+		SELECT
+		event_id,
+		event_name,
+		event_desc,
+		img_addr,
+		capacity,
+		num_person,
+		priority,
+		create_time,
+		last_edit_time,
+		enable_status,
+		event_category_id,
+		event_id
+		FROM
+		tb_event
+		<where>
+			<if
+				test="eventCondition.club != null and eventCondition.club.clubId != null">
+				and club_id = #{eventCondition.club.clubId}
+			</if>
+			<if
+				test="eventCondition.eventCategory != null and eventCondition.eventCategory.eventCategoryId != null">
+				and event_category_id =
+				#{eventCondition.eventCategory.eventCategoryId}
+			</if>
+			<if test="eventCondition.eventName != null">
+				and event_name like '%${eventCondition.eventName}%'
+			</if>
+			<if test="eventCondition.enableStatus != null">
+				and enable_status = #{eventCondition.enableStatus}
+			</if>
+		</where>
+		ORDER BY
+		priority DESC
+		LIMIT #{rowIndex}, #{pageSize};
+	</select>
+	<select id="queryEventCount" resultType="int">
+		SELECT count(1) FROM tb_event
+		<where>
+			<if
+				test="eventCondition.club != null and eventCondition.club.clubId != null">
+				and club_id = #{eventCondition.club.clubId}
+			</if>
+			<if
+				test="eventCondition.eventCategory != null and eventCondition.eventCategory.eventCategoryId != null">
+				and event_category_id =
+				#{eventCondition.eventCategory.eventCategoryId}
+			</if>
+			<if test="eventCondition.eventName != null">
+				and evet_name like '%#{eventCondition.eventName}%'
+			</if>
+			<if test="eventCondition.enableStatus != null">
+				and enable_status = #{eventCondition.enableStatus}
+			</if>
+		</where>
+	</select>
+	<select id="queryEventById" resultMap="eventMap" parameterType="Long">
+		SELECT
+		e.event_id,
+		e.event_name,
+		e.event_desc,
+		e.img_addr,
+		e.capacity,
+		e.num_person,
+		e.priority,
+		e.create_time,
+		e.last_edit_time,
+		e.enable_status,
+		e.event_category_id,
+		e.club_id,
+		ei.event_img_id,
+		ei.img_addr,
+		ei.img_desc,
+		ei.priority,
+		ei.create_time
+		FROM
+		tb_event e
+		LEFT
+		JOIN
+		tb_event_img ei
+		ON
+		e.event_id = ei.event_id
+		WHERE
+		e.event_id =
+		#{eventId}
+		ORDER BY
+		ei.priority DESC
+	</select>
+	<insert id="insertEvent" parameterType="com.shecaicc.cc.entity.Event"
+		useGeneratedKeys="true" keyProperty="eventId" keyColumn="event_id">
+		INSERT INTO
+		tb_event(event_name, event_desc, img_addr,
+		capacity, num_person,
+		priority, create_time,
+		last_edit_time, enable_status,
+		event_category_id,
+		club_id)
+		VALUES
+		(#{eventName}, #{eventDesc},
+		#{imgAddr},
+		#{capacity}, #{numPerson}, #{priority}, #{createTime},
+		#{lastEditTime}, #{enableStatus}, #{eventCategory.eventCategoryId},
+		#{club.clubId})
+	</insert>
+	<update id="updateEvent" parameterType="com.shecaicc.cc.entity.Event"
+		keyProperty="event_id" useGeneratedKeys="true">
+		UPDATE tb_event
+		<set>
+			<if test="eventName != null">event_name = #{eventName},</if>
+			<if test="eventDesc != null">event_desc = #{eventDesc},</if>
+			<if test="imgAddr != null">img_addr = #{imgAddr},</if>
+			<if test="capacity != null">capacity = #{capacity},</if>
+			<if test="numPerson != null">num_person = #{numPerson},</if>
+			<if test="priority != null">priority = #{priority},</if>
+			<if test="lastEditTime != null">last_edit_time = #{lastEditTime},</if>
+			<if test="enableStatus != null">enable_status = #{enableStatus},</if>
+			<if test="eventCategory != null and eventCategory.eventCategoryId != null">event_category_id = #{eventCategory.eventCategoryId}</if>
+		</set>
+		WHERE event_id = #{eventId}
+		AND club_id = #{club.clubId}
+	</update>
+	<update id="updateEventCategoryToNull" parameterType="Long">
+		UPDATE
+		tb_event
+		SET
+		event_category_id = null
+		WHERE
+		event_category_id =
+		#{eventCategory.eventCategoryId}
+	</update>
+	<delete id="deleteEvent">
+		DELETE FROM
+		tb_event
+		WHERE
+		event_id = #{eventId}
+		AND
+		club_id = #{clubId}
+	</delete>
+</mapper>

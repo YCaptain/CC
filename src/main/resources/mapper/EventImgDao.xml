@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shecaicc.cc.dao.EventImgDao">
+	<select id="queryEventImgList" resultType="com.shecaicc.cc.entity.EventImg"
+		parameterType="Long">
+		SELECT
+		event_img_id,
+		img_addr,
+		img_desc,
+		priority,
+		create_time,
+		event_id
+		FROM tb_event_img
+		WHERE event_id=#{eventId}
+		ORDER BY
+		event_img_id ASC
+	</select>
+	<insert id="batchInsertEventImg" parameterType="java.util.List">
+		INSERT INTO
+		tb_event_img(img_addr, img_desc, priority,
+		create_time,
+		event_id)
+		VALUES
+		<foreach collection="list" item="eventImg" index="index"
+			separator=",">
+			(
+			#{eventImg.imgAddr},
+			#{eventImg.imgDesc},
+			#{eventImg.priority},
+			#{eventImg.createTime},
+			#{eventImg.eventId}
+			)
+		</foreach>
+	</insert>
+	<delete id="deleteEventImgByEventId">
+		DELETE FROM
+		tb_event_img
+		WHERE
+		event_id = #{eventId}
+	</delete>
+</mapper>

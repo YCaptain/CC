@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shecaicc.cc.dao.EventCategoryDao">
+	<select id="queryEventCategoryList" resultType="com.shecaicc.cc.entity.EventCategory"
+		parameterType="Long">
+		SELECT
+		event_category_id,
+		event_category_name,
+		priority,
+		create_time,
+		club_id
+		FROM
+		tb_event_category
+		WHERE
+		club_id = #{clubId}
+		ORDER
+		BY
+		priority DESC
+	</select>
+	<insert id="batchInsertEventCategory" parameterType="java.util.List">
+		INSERT INTO
+		tb_event_category(event_category_name, priority, create_time, club_id)
+		VALUES
+		<foreach collection="list" item="eventCategory" index="index"
+			separator=",">
+			(
+			#{eventCategory.eventCategoryName},
+			#{eventCategory.priority},
+			#{eventCategory.createTime},
+			#{eventCategory.clubId}
+			)
+		</foreach>
+	</insert>
+	<delete id="deleteEventCategory">
+	    DELETE FROM
+	    tb_event_category
+	    WHERE
+	    event_category_id = #{eventCategoryId}
+	    AND club_id = #{clubId}
+	</delete>
+</mapper>

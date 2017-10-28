@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.shecaicc.cc.BaseTest;
 import com.shecaicc.cc.dto.ClubExecution;
+import com.shecaicc.cc.dto.ImageHolder;
 import com.shecaicc.cc.entity.Area;
 import com.shecaicc.cc.entity.Club;
 import com.shecaicc.cc.entity.ClubCategory;
@@ -41,7 +42,8 @@ public class ClubServiceTest extends BaseTest {
 		club.setClubName("修改后的社团名称");
 		File clubImg = new File("D:\\学习\\素材\\shock.jpg");
 		InputStream is = new FileInputStream(clubImg);
-		ClubExecution clubExecution = clubService.modifyClub(club, is, "shock.jpg");
+		ImageHolder imageHolder = new ImageHolder("shock.jpg", is);
+		ClubExecution clubExecution = clubService.modifyClub(club, imageHolder);
 		System.out.println("新的图片地址为: " + clubExecution.getClub().getClubImg());
 	}
 
@@ -66,7 +68,8 @@ public class ClubServiceTest extends BaseTest {
 		club.setAdvice("审核中");
 		File clubImg = new File("D:/学习/素材/跑酷社.jpg");
 		InputStream is = new FileInputStream(clubImg);
-		ClubExecution clubExecution = clubService.addClub(club, is, clubImg.getName());
+		ImageHolder imageHolder = new ImageHolder("shock.jpg", is);
+		ClubExecution clubExecution = clubService.addClub(club, imageHolder);
 		assertEquals(ClubStateEnum.CHECK.getState(), clubExecution.getState());
 	}
 

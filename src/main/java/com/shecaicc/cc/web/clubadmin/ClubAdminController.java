@@ -21,4 +21,14 @@ public class ClubAdminController {
 	public String clubManagement() {
 		return "club/clubmanagement";
 	}
+
+	@RequestMapping(value = "/eventcategorymanagement", method = RequestMethod.GET)
+	public String eventCategoryManagement() {
+		return "club/eventcategorymanagement";
+	}
+
+	@RequestMapping(value = "/eventoperation")
+	public String eventOperation() {
+		return "club/eventoperation";
+	}
 }
