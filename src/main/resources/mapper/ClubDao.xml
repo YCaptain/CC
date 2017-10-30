@@ -59,6 +59,13 @@
 				#{clubCondition.clubCategory.clubCategoryId}
 			</if>
 			<if
+				test="clubCondition.clubCategory != null and clubCondition.clubCategory.parent != null 
+				and clubCondition.clubCategory.parent.clubCategoryId != null">
+				and c.club_category_id in (SELECT club_category_id FROM
+				tb_club_category WHERE parent_id =
+				#{clubCondition.clubCategory.parent.clubCategoryId})
+			</if>
+			<if
 				test="clubCondition.area != null and clubCondition.area.areaId != null">
 				and c.area_id = #{clubCondition.area.areaId}
 			</if>
@@ -82,10 +89,10 @@
 		LIMIT #{rowIndex}, #{pageSize};
 	</select>
 	<select id="queryClubCount" resultType="int">
-	    SELECT
-	    count(1)
-	    FROM
-	    tb_club c,
+		SELECT
+		count(1)
+		FROM
+		tb_club c,
 		tb_area a,
 		tb_club_category cc
 		<where>
@@ -93,6 +100,13 @@
 				test="clubCondition.clubCategory != null and clubCondition.clubCategory.clubCategoryId != null">
 				and c.club_category_id =
 				#{clubCondition.clubCategory.clubCategoryId}
+			</if>
+			<if
+				test="clubCondition.clubCategory != null and clubCondition.clubCategory.parent != null 
+				and clubCondition.clubCategory.parent.clubCategoryId != null">
+				and c.club_category_id in (SELECT club_category_id FROM
+				tb_club_category WHERE parent_id =
+				#{clubCondition.clubCategory.parent.clubCategoryId})
 			</if>
 			<if
 				test="clubCondition.area != null and clubCondition.area.areaId != null">

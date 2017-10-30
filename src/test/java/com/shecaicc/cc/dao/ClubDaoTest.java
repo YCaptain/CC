@@ -21,9 +21,11 @@ public class ClubDaoTest extends BaseTest {
 	@Test
 	public void testQueryClubListAndCount() {
 		Club clubCondition = new Club();
-		PersonInfo captain = new PersonInfo();
-		captain.setUserId(1L);
-		clubCondition.setCaptain(captain);
+		ClubCategory childCategory = new ClubCategory();
+		ClubCategory parentCategory = new ClubCategory();
+		parentCategory.setClubCategoryId(1L);
+		childCategory.setParent(parentCategory);
+		clubCondition.setClubCategory(childCategory);
 		List<Club> clubList = clubDao.queryClubList(clubCondition, 0, 5);
 		int count = clubDao.queryClubCount(clubCondition);
 		System.out.println("社团列表的大小: " + clubList.size());

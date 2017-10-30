@@ -8,7 +8,7 @@ public class PathUtil {
 		String os = System.getProperty("os.name");
 		String basePath = "";
 		if (os.toLowerCase().startsWith("win")) {
-			basePath = "D:/shecaicc/image/";
+			basePath = "D:/shecaicc/image";
 		} else {
 			basePath = "/home/shecaicc/image/";
 		}
@@ -17,7 +17,7 @@ public class PathUtil {
 	}
 
 	public static String getClubImagePath(long clubId) {
-		String imagePath = "upload/item/club/" + clubId + "/";
+		String imagePath = "/upload/item/club/" + clubId + "/";
 		return imagePath.replace("/", separator);
 	}
 
