@@ -31,4 +31,9 @@ public class ClubAdminController {
 	public String eventOperation() {
 		return "club/eventoperation";
 	}
+
+	@RequestMapping(value = "/eventmanagement")
+	public String eventManagement() {
+		return "club/eventmanagement";
+	}
 }

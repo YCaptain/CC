@@ -42,6 +42,35 @@ public class EventManagementController {
 	// 支持上传活动详情图的最大数量
 	private static final int IMAGEMAXCOUNT = 6;
 
+	/**
+	 * 通过社团id获取该社团下的活动列表
+	 *
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/geteventlistbyclub", method = RequestMethod.GET)
+	@ResponseBody
+	private Map<String, Object> getEventListByClub(HttpServletRequest request) {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		int pageIndex = HttpServletRequestUtil.getInt(request, "pageIndex");
+		int pageSize = HttpServletRequestUtil.getInt(request, "pageSize");
+		Club currentClub = (Club) request.getSession().getAttribute("currentClub");
+		if ((pageIndex > -1) && (pageSize > -1) && (currentClub != null) && (currentClub.getClubId() != null)) {
+			long eventCategoryId = HttpServletRequestUtil.getLong(request, "eventCategoryId");
+			String eventName = HttpServletRequestUtil.getString(request, "eventName");
+			Event eventCondition = compactEventCondition(currentClub.getClubId(), eventCategoryId, eventName);
+			// 传入查询条件以及分页信息进行查询，返回相应活动列表以及总数
+			EventExecution ee = eventService.getEventList(eventCondition, pageIndex, pageSize);
+			modelMap.put("eventList", ee.getEventList());
+			modelMap.put("count", ee.getCount());
+			modelMap.put("success", true);
+		} else {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "empty pageSize or pageIndex or clubId");
+		}
+		return modelMap;
+	}
+
 	@RequestMapping(value = "/addevent", method = RequestMethod.POST)
 	private Map<String, Object> addEvent(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
@@ -218,5 +247,32 @@ public class EventManagementController {
 			modelMap.put("errMsg", "请输入活动信息");
 		}
 		return modelMap;
+	}
+
+	/**
+	 * 封装活动查询条件到Event实例中
+	 *
+	 * @param clubId
+	 * @param eventCategoryId
+	 * @param eventName
+	 * @return
+	 */
+	private Event compactEventCondition(long clubId, long eventCategoryId, String eventName) {
+		Event eventCondition = new Event();
+		Club club = new Club();
+		club.setClubId(clubId);
+		eventCondition.setClub(club);
+		// 添加指定类别要求
+		if (eventCategoryId != -1L) {
+			EventCategory eventCategory = new EventCategory();
+			eventCategory.setEventCategoryId(eventCategoryId);
+			eventCondition.setEventCategory(eventCategory);
+		}
+		// 添加活动名模糊查询
+		if (eventName != null) {
+			eventCondition.setEventName(eventName);
+		}
+		return eventCondition;
+
 	}
 }

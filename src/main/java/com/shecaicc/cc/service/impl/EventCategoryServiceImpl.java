@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shecaicc.cc.dao.EventCategoryDao;
+import com.shecaicc.cc.dao.EventDao;
 import com.shecaicc.cc.dto.EventCategoryExecution;
 import com.shecaicc.cc.entity.EventCategory;
 import com.shecaicc.cc.enums.EventCategoryStateEnum;
@@ -15,6 +16,8 @@ import com.shecaicc.cc.service.EventCategoryService;
 
 @Service
 public class EventCategoryServiceImpl implements EventCategoryService {
+	@Autowired
+	private EventDao eventDao;
 	@Autowired
 	private EventCategoryDao eventCategoryDao;
 
@@ -47,7 +50,16 @@ public class EventCategoryServiceImpl implements EventCategoryService {
 	@Transactional
 	public EventCategoryExecution deleteEventCategory(long eventCategoryId, long clubId)
 			throws EventCategoryOperationException {
-		// TODO 将此活动类别下的活动的类别Id置为空
+		// 解除tb_event里的活动与该eventcategoryId的关联
+		try {
+			int effectedNum = eventDao.updateEventCategoryToNull(eventCategoryId);
+			if (effectedNum < 0) {
+				throw new EventCategoryOperationException("活动类别更新失败");
+			}
+		} catch (Exception e) {
+			throw new EventCategoryOperationException("deleteEventCategory error: " + e.getMessage());
+		}
+		// 删除该eventCategoty
 		try {
 			int effectedNum = eventCategoryDao.deleteEventCategory(eventCategoryId, clubId);
 			if (effectedNum <= 0) {

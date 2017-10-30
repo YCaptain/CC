@@ -1,0 +1,19 @@
+.row-event {
+    border: 1px solid #999;
+    padding: .5rem;
+    border-bottom: none;
+}
+.row-event * {
+    white-space: nowrap;
+    overflow: scroll;
+}
+.row-event:last-child {
+    border-bottom: 1px solid #999;
+}
+.event-name {
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.event-wrap a {
+    margin-right: 1rem;
+}
