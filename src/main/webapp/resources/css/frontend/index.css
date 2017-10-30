@@ -1,0 +1,66 @@
+.index-banner {
+    height: 35%;
+    padding-bottom: 0.4rem;
+}
+.img-wrap {
+    overflow: hidden;
+}
+.banner-img {
+    width: 100%;
+    height: 100%;
+}
+.total-club-button {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding-left: 0.85rem;
+    margin-bottom: 0.4rem;
+    position: relative;
+    cursor: pointer;
+}
+.total-club-button:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 0.15rem;
+    height: 1.5rem;
+    background-color: #0894ec;
+}
+.club-classify {
+    height: 3.3rem;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+.club-classify > .word {
+    width: 65%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+}
+.club-classify > .word > p {
+    margin: 0;
+}
+.club-classify > .word > .club-title {
+    margin: 0;
+    font-size: 0.8rem;
+}
+.club-classify > .word > .club-desc {
+    margin: 0;
+    font-size: 0.4rem;
+}
+// .club-classify > .club-img {
+//     width: 2.4rem;
+//     height: 2.4rem;
+//     margin-left: 0.2rem;
+//     display: inline-block;
+// }
+.club-classify > .club-classify-img-warp {
+    width: 30%;
+    height: 100%;
+    margin-left: 0.2rem;
+    display: inline-block;
+}
+.club-classify > .club-classify-img-warp > .club-img {
+    width: 100%;
+    height: 100%;
+}

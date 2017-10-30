@@ -9,7 +9,7 @@ public class HeadLine {
 	private String lineImg;
 	private Integer priority;
 	// 0.可用 1.不可用
-	private Integer enbleStatus;
+	private Integer enableStatus;
 	private Date creatTime;
 	private Date lastEditTime;
 
@@ -53,12 +53,12 @@ public class HeadLine {
 		this.priority = priority;
 	}
 
-	public Integer getEnbleStatus() {
-		return enbleStatus;
+	public Integer getEnableStatus() {
+		return enableStatus;
 	}
 
-	public void setEnbleStatus(Integer enbleStatus) {
-		this.enbleStatus = enbleStatus;
+	public void setEnableStatus(Integer enableStatus) {
+		this.enableStatus = enableStatus;
 	}
 
 	public Date getCreatTime() {

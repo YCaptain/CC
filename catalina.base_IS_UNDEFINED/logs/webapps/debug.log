@@ -28,3 +28,15 @@
 2017-10-30 10:33:59:693 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
 2017-10-30 10:33:59:693 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 6(Long)
 2017-10-30 10:33:59:708 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 7
+2017-10-30 11:01:39:713 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2017-10-30 11:01:39:763 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2017-10-30 11:01:39:778 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2017-10-30 11:03:16:344 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2017-10-30 11:03:16:389 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2017-10-30 11:03:16:409 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2017-10-30 11:07:13:144 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==>  Preparing: SELECT club_category_id, club_category_name, club_category_desc, club_category_img, priority, create_time, last_edit_time, parent_id FROM tb_club_category WHERE parent_id is null ORDER BY priority DESC 
+2017-10-30 11:07:13:197 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==> Parameters: 
+2017-10-30 11:07:13:275 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - <==      Total: 1
+2017-10-30 11:08:25:280 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==>  Preparing: SELECT club_category_id, club_category_name, club_category_desc, club_category_img, priority, create_time, last_edit_time, parent_id FROM tb_club_category WHERE parent_id is null ORDER BY priority DESC 
+2017-10-30 11:08:25:322 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==> Parameters: 
+2017-10-30 11:08:25:338 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - <==      Total: 1

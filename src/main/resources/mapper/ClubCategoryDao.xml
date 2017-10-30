@@ -16,10 +16,13 @@
         FROM
         tb_club_category
         <where>
+            <if test="clubCategoryCondition == null">
+                and parent_id is null
+            </if>
             <if test="clubCategoryCondition != null">
                 and parent_id is not null
             </if>
-            <if test="clubCategoryCondition.parent != null">
+            <if test="clubCategoryCondition != null and clubCategoryCondition.parent != null">
                 and parent_id = #{clubCategoryCondition.parent.clubCategoryId}
             </if>
         </where>
