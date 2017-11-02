@@ -38,11 +38,11 @@ public class ClubServiceTest extends BaseTest {
 	@Test
 	public void testModifyClub() throws FileNotFoundException {
 		Club club = new Club();
-		club.setClubId(12L);
+		club.setClubId(28L);
 		club.setClubName("修改后的社团名称");
-		File clubImg = new File("D:\\学习\\素材\\shock.jpg");
+		File clubImg = new File("D:\\学习\\素材\\跑酷社.jpg");
 		InputStream is = new FileInputStream(clubImg);
-		ImageHolder imageHolder = new ImageHolder("shock.jpg", is);
+		ImageHolder imageHolder = new ImageHolder("跑酷社.jpg", is);
 		ClubExecution clubExecution = clubService.modifyClub(club, imageHolder);
 		System.out.println("新的图片地址为: " + clubExecution.getClub().getClubImg());
 	}
@@ -59,16 +59,16 @@ public class ClubServiceTest extends BaseTest {
 		club.setCaptain(captain);
 		club.setArea(area);
 		club.setClubCategory(clubCategory);
-		club.setClubName("测试的社团3");
-		club.setClubDesc("test1");
-		club.setClubAddr("test1");
-		club.setPhone("test1");
+		club.setClubName("篮球社");
+		club.setClubDesc("灌篮高手是篮板王");
+		club.setClubAddr("本校区");
+		club.setPhone("18812344321");
 		club.setCreateTime(new Date());
 		club.setEnableStatus(ClubStateEnum.CHECK.getState());
 		club.setAdvice("审核中");
-		File clubImg = new File("D:/学习/素材/跑酷社.jpg");
+		File clubImg = new File("D:/学习/素材/basketball.jpg");
 		InputStream is = new FileInputStream(clubImg);
-		ImageHolder imageHolder = new ImageHolder("shock.jpg", is);
+		ImageHolder imageHolder = new ImageHolder("basketball.jpg", is);
 		ClubExecution clubExecution = clubService.addClub(club, imageHolder);
 		assertEquals(ClubStateEnum.CHECK.getState(), clubExecution.getState());
 	}

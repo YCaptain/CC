@@ -1,79 +1,30 @@
-2017-10-30 10:33:58:810 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-30 10:33:58:892 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试1(String), 测试desc1(String), 测试addr1(String), 10(Integer), 0(Integer), 1(Integer), 2017-10-30 10:33:58.407(Timestamp), 2017-10-30 10:33:58.407(Timestamp), 1(Integer), 6(Long), 28(Long)
-2017-10-30 10:33:59:177 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
-2017-10-30 10:33:59:208 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-30 10:33:59:223 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试2(String), 测试desc2(String), 测试addr2(String), 10(Integer), 0(Integer), 2(Integer), 2017-10-30 10:33:58.407(Timestamp), 2017-10-30 10:33:58.407(Timestamp), 0(Integer), 6(Long), 28(Long)
-2017-10-30 10:33:59:294 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
-2017-10-30 10:33:59:294 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==>  Preparing: INSERT INTO tb_event(event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, club_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-30 10:33:59:294 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - ==> Parameters: 测试3(String), 测试desc3(String), 测试addr3(String), 10(Integer), 0(Integer), 3(Integer), 2017-10-30 10:33:58.407(Timestamp), 2017-10-30 10:33:58.407(Timestamp), 1(Integer), 6(Long), 28(Long)
-2017-10-30 10:33:59:345 [main] DEBUG com.shecaicc.cc.dao.EventDao.insertEvent - <==    Updates: 1
-2017-10-30 10:33:59:445 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==>  Preparing: SELECT event_id, event_name, event_desc, img_addr, capacity, num_person, priority, create_time, last_edit_time, enable_status, event_category_id, event_id FROM tb_event ORDER BY priority DESC LIMIT ?, ?; 
-2017-10-30 10:33:59:446 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - ==> Parameters: 0(Integer), 3(Integer)
-2017-10-30 10:33:59:461 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventList - <==      Total: 3
-2017-10-30 10:33:59:477 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==>  Preparing: SELECT count(1) FROM tb_event 
-2017-10-30 10:33:59:477 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - ==> Parameters: 
-2017-10-30 10:33:59:477 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventCount - <==      Total: 1
-2017-10-30 10:33:59:477 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==>  Preparing: INSERT INTO tb_event_img(img_addr, img_desc, priority, create_time, event_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
-2017-10-30 10:33:59:477 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2017-10-30 10:33:59.477(Timestamp), 9(Long), 图片2(String), 测试图片2(String), 2(Integer), 2017-10-30 10:33:59.477(Timestamp), 9(Long)
-2017-10-30 10:33:59:542 [main] DEBUG c.shecaicc.cc.dao.EventImgDao.batchInsertEventImg - <==    Updates: 2
-2017-10-30 10:33:59:543 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==>  Preparing: SELECT e.event_id, e.event_name, e.event_desc, e.img_addr, e.capacity, e.num_person, e.priority, e.create_time, e.last_edit_time, e.enable_status, e.event_category_id, e.club_id, ei.event_img_id, ei.img_addr, ei.img_desc, ei.priority, ei.create_time FROM tb_event e LEFT JOIN tb_event_img ei ON e.event_id = ei.event_id WHERE e.event_id = ? ORDER BY ei.priority DESC 
-2017-10-30 10:33:59:544 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - ==> Parameters: 9(Long)
-2017-10-30 10:33:59:546 [main] DEBUG com.shecaicc.cc.dao.EventDao.queryEventById - <==      Total: 2
-2017-10-30 10:33:59:546 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==>  Preparing: DELETE FROM tb_event_img WHERE event_id = ? 
-2017-10-30 10:33:59:546 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - ==> Parameters: 9(Long)
-2017-10-30 10:33:59:624 [main] DEBUG c.s.cc.dao.EventImgDao.deleteEventImgByEventId - <==    Updates: 2
-2017-10-30 10:33:59:624 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==>  Preparing: UPDATE tb_event SET event_name = ?, event_category_id = ? WHERE event_id = ? AND club_id = ? 
-2017-10-30 10:33:59:624 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - ==> Parameters: 第二个活动(String), 6(Long), 28(Long), 28(Long)
-2017-10-30 10:33:59:677 [main] DEBUG com.shecaicc.cc.dao.EventDao.updateEvent - <==    Updates: 1
-2017-10-30 10:33:59:693 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==>  Preparing: UPDATE tb_event SET event_category_id = null WHERE event_category_id = ? 
-2017-10-30 10:33:59:693 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - ==> Parameters: 6(Long)
-2017-10-30 10:33:59:708 [main] DEBUG c.s.cc.dao.EventDao.updateEventCategoryToNull - <==    Updates: 7
-2017-10-30 11:01:39:713 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
-2017-10-30 11:01:39:763 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
-2017-10-30 11:01:39:778 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - <==      Total: 1
-2017-10-30 11:03:16:344 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
-2017-10-30 11:03:16:389 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
-2017-10-30 11:03:16:409 [main] DEBUG com.shecaicc.cc.dao.HeadLineDao.queryHeadLine - <==      Total: 1
-2017-10-30 11:07:13:144 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==>  Preparing: SELECT club_category_id, club_category_name, club_category_desc, club_category_img, priority, create_time, last_edit_time, parent_id FROM tb_club_category WHERE parent_id is null ORDER BY priority DESC 
-2017-10-30 11:07:13:197 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==> Parameters: 
-2017-10-30 11:07:13:275 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - <==      Total: 1
-2017-10-30 11:08:25:280 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==>  Preparing: SELECT club_category_id, club_category_name, club_category_desc, club_category_img, priority, create_time, last_edit_time, parent_id FROM tb_club_category WHERE parent_id is null ORDER BY priority DESC 
-2017-10-30 11:08:25:322 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - ==> Parameters: 
-2017-10-30 11:08:25:338 [main] DEBUG c.s.cc.dao.ClubCategoryDao.queryClubCategory - <==      Total: 1
-2017-10-30 13:53:59:552 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.captain_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 13:53:59:587 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 5(Integer)
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - <==      Total: 5
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==>  Preparing: SELECT count(1) FROM tb_club c, tb_area a, tb_club_category cc WHERE c.captain_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id 
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==> Parameters: 1(Long)
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - <==      Total: 1
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.captain_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 2(Integer)
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - <==      Total: 2
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==>  Preparing: SELECT count(1) FROM tb_club c, tb_area a, tb_club_category cc WHERE c.captain_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id 
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==> Parameters: 1(Long)
-2017-10-30 13:53:59:621 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - <==      Total: 1
-2017-10-30 14:04:23:952 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_desc=?, club_addr=?, last_edit_time=? WHERE club_id=? 
-2017-10-30 14:04:23:998 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 测试描述(String), 测试地址(String), 2017-10-30 14:04:23.44(Timestamp), 2(Long)
-2017-10-30 14:04:24:000 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 0
-2017-10-30 14:04:24:022 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 14:04:24:022 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 5(Integer)
-2017-10-30 14:04:24:144 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-30 14:04:24:147 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), LF Pakour(String), test(String), test(String), test(String), test(String), null, 2017-10-30 14:04:24.144(Timestamp), null, 1(Integer), 审核中(String)
-2017-10-30 14:04:24:339 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
-2017-10-30 14:04:24:365 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-30 14:04:24:366 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 12(Long)
-2017-10-30 14:04:24:403 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
-2017-10-30 14:05:01:018 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ? AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 14:05:01:053 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 5(Integer)
-2017-10-30 14:06:09:448 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ?) AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 14:06:09:482 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 5(Integer)
-2017-10-30 14:06:09:602 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - <==      Total: 5
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==>  Preparing: SELECT count(1) FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ?) AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id 
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==> Parameters: 1(Long)
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - <==      Total: 1
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ?) AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id ORDER BY c.priority DESC LIMIT ?, ?; 
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - ==> Parameters: 1(Long), 0(Integer), 2(Integer)
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubList - <==      Total: 2
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==>  Preparing: SELECT count(1) FROM tb_club c, tb_area a, tb_club_category cc WHERE c.club_category_id in (SELECT club_category_id FROM tb_club_category WHERE parent_id = ?) AND c.area_id = a.area_id AND c.club_category_id = cc.club_category_id 
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - ==> Parameters: 1(Long)
-2017-10-30 14:06:09:618 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryClubCount - <==      Total: 1
+2017-10-31 04:15:50:402 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
+2017-10-31 04:15:50:467 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 28(Long)
+2017-10-31 04:15:50:489 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
+2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\28\2017103104155055315.jpg
+2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017103104155055315.jpg
+2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-31 04:15:51:491 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_img=?, last_edit_time=? WHERE club_id=? 
+2017-10-31 04:15:51:492 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 修改后的社团名称(String), \upload\item\club\28\2017103104155055315.jpg(String), 2017-10-31 04:15:51.461(Timestamp), 28(Long)
+2017-10-31 04:15:51:527 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
+2017-10-31 04:15:51:528 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
+2017-10-31 04:15:51:528 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 28(Long)
+2017-10-31 04:15:51:534 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
+2017-10-31 04:23:24:620 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-31 04:23:24:657 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 峻野登山社(String), 为山而来，为人而留(String), 本校区(String), 18812344321(String), null, null, 2017-10-31 04:23:24.603(Timestamp), 2017-10-31 04:23:24.603(Timestamp), 0(Integer), 通过审核(String)
+2017-10-31 04:23:24:659 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
+2017-10-31 04:23:24:666 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\31\2017103104232466312.jpg
+2017-10-31 04:23:24:667 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\31\2017103104232466312.jpg
+2017-10-31 04:23:24:667 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-31 04:23:24:870 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
+2017-10-31 04:23:24:871 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 峻野登山社(String), 为山而来，为人而留(String), 本校区(String), 18812344321(String), \upload\item\club\31\2017103104232466312.jpg(String), 2017-10-31 04:23:24.603(Timestamp), 0(Integer), 通过审核(String), 2(Integer), 1(Long), 31(Long)
+2017-10-31 04:23:24:895 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
+2017-10-31 04:31:08:245 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2017-10-31 04:31:08:279 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 篮球社(String), 灌篮高手是篮板王(String), 本校区(String), 18812344321(String), null, null, 2017-10-31 04:31:08.223(Timestamp), 2017-10-31 04:31:08.223(Timestamp), 0(Integer), 审核中(String)
+2017-10-31 04:31:08:287 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
+2017-10-31 04:31:08:294 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\32\2017103104310874517.jpg
+2017-10-31 04:31:08:295 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\32\2017103104310874517.jpg
+2017-10-31 04:31:08:295 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
+2017-10-31 04:31:08:508 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
+2017-10-31 04:31:08:509 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 篮球社(String), 灌篮高手是篮板王(String), 本校区(String), 18812344321(String), \upload\item\club\32\2017103104310874517.jpg(String), 2017-10-31 04:31:08.223(Timestamp), 0(Integer), 审核中(String), 2(Integer), 1(Long), 32(Long)
+2017-10-31 04:31:08:530 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1

@@ -47,7 +47,7 @@ $(function() {
 										});
 								// 将拼接好的类别标签嵌入前台的html组件里
 								$('#clublist-search-div').html(html);
-								var selectOptions = '<option value="">全部街道</option>';
+								var selectOptions = '<option value="">全部校区</option>';
 								// 获取后台返回过来的区域信息列表
 								var areaList = data.areaList;
 								// 遍历区域信息列表，拼接出option标签集
@@ -97,7 +97,7 @@ $(function() {
 							+ '</div>' + '</div>' + '</li>' + '</ul>'
 							+ '</div>' + '</div>' + '<div class="card-footer">'
 							+ '<p class="color-gray">'
-							+ new Date(item.lastEditTime).Format("yyyy-MM-dd");
+							+ new Date(item.lastEditTime).Format("yyyy-MM-dd")
 							+ '更新</p>' + '<span>点击查看</span>' + '</div>'
 							+ '</div>';
 				});
