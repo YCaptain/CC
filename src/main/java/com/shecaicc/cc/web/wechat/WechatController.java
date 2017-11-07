@@ -23,7 +23,7 @@ public class WechatController {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("wexin get...");
 		// 微信加密签名，signature结合了token, timestamp, nonce
-		String signature = request.getParameter("signaure");
+		String signature = request.getParameter("signature");
 		// 时间戳
 		String timestamp = request.getParameter("timestamp");
 		// 随机数

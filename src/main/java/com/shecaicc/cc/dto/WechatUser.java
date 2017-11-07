@@ -19,7 +19,7 @@ public class WechatUser implements Serializable {
 
 	// openId, 标识该公众号下面的该用户的唯一Id
 	@JsonProperty("openid")
-	private String openid;
+	private String openId;
 	// 用户昵称
 	@JsonProperty("nickname")
 	private String nikeName;
@@ -45,12 +45,12 @@ public class WechatUser implements Serializable {
 	@JsonProperty("privilege")
 	private String[] privilege;
 
-	public String getOpenid() {
-		return openid;
+	public String getOpenId() {
+		return openId;
 	}
 
-	public void setOpenid(String openid) {
-		this.openid = openid;
+	public void setOpenId(String openId) {
+		this.openId = openId;
 	}
 
 	public String getNikeName() {

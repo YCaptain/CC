@@ -21,6 +21,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shecaicc.cc.dto.UserAccessToken;
+import com.shecaicc.cc.dto.WechatUser;
 
 /**
  * 微信工具类
@@ -71,6 +72,34 @@ public class WechatUtil {
 			return null;
 		}
 		return token;
+	}
+
+	public static WechatUser getUserInfo(String accessToken, String openId) {
+		// 根据传入的accessToken以及openId拼接出访问微信定义的端口并获取用户信息的URL
+		String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + accessToken + "&openid=" + openId
+				+ "&lang=zh_CN";
+		// 获取用户信息json字符串
+		String userStr = httpsRequest(url, "GET", null);
+		log.debug("user info: " + userStr);
+		WechatUser user = new WechatUser();
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			user = objectMapper.readValue(userStr, WechatUser.class);
+		} catch (JsonParseException e) {
+			log.error("获取用户信息失败: " + e.getMessage());
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			log.error("获取用户信息失败: " + e.getMessage());
+			e.printStackTrace();
+		} catch (IOException e) {
+			log.error("获取用户信息失败: " + e.getMessage());
+			e.printStackTrace();
+		}
+		if (user == null) {
+			log.error("获取用户信息失败。");
+			return null;
+		}
+		return user;
 	}
 
 	/**
