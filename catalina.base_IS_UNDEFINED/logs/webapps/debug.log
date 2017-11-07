@@ -1,30 +1,32 @@
-2017-10-31 04:15:50:402 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-31 04:15:50:467 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 28(Long)
-2017-10-31 04:15:50:489 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
-2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\28\2017103104155055315.jpg
-2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\28\2017103104155055315.jpg
-2017-10-31 04:15:50:521 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-31 04:15:51:491 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_img=?, last_edit_time=? WHERE club_id=? 
-2017-10-31 04:15:51:492 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 修改后的社团名称(String), \upload\item\club\28\2017103104155055315.jpg(String), 2017-10-31 04:15:51.461(Timestamp), 28(Long)
-2017-10-31 04:15:51:527 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
-2017-10-31 04:15:51:528 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==>  Preparing: SELECT c.club_id, c.club_name, c.club_desc, c.club_addr, c.phone, c.club_img, c.priority, c.create_time, c.last_edit_time, c.enable_status, c.advice, a.area_id, a.area_name, cc.club_category_id, cc.club_category_name FROM tb_club c, tb_area a, tb_club_category cc WHERE c.area_id = a.area_id AND c.club_category_id = cc.club_category_id AND c.club_id = ? 
-2017-10-31 04:15:51:528 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - ==> Parameters: 28(Long)
-2017-10-31 04:15:51:534 [main] DEBUG com.shecaicc.cc.dao.ClubDao.queryByClubId - <==      Total: 1
-2017-10-31 04:23:24:620 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-31 04:23:24:657 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 峻野登山社(String), 为山而来，为人而留(String), 本校区(String), 18812344321(String), null, null, 2017-10-31 04:23:24.603(Timestamp), 2017-10-31 04:23:24.603(Timestamp), 0(Integer), 通过审核(String)
-2017-10-31 04:23:24:659 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
-2017-10-31 04:23:24:666 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\31\2017103104232466312.jpg
-2017-10-31 04:23:24:667 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\31\2017103104232466312.jpg
-2017-10-31 04:23:24:667 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-31 04:23:24:870 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
-2017-10-31 04:23:24:871 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 峻野登山社(String), 为山而来，为人而留(String), 本校区(String), 18812344321(String), \upload\item\club\31\2017103104232466312.jpg(String), 2017-10-31 04:23:24.603(Timestamp), 0(Integer), 通过审核(String), 2(Integer), 1(Long), 31(Long)
-2017-10-31 04:23:24:895 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
-2017-10-31 04:31:08:245 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==>  Preparing: INSERT INTO tb_club(captain_id, area_id, club_category_id, club_name, club_desc, club_addr, phone, club_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2017-10-31 04:31:08:279 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - ==> Parameters: 1(Long), 2(Integer), 1(Long), 篮球社(String), 灌篮高手是篮板王(String), 本校区(String), 18812344321(String), null, null, 2017-10-31 04:31:08.223(Timestamp), 2017-10-31 04:31:08.223(Timestamp), 0(Integer), 审核中(String)
-2017-10-31 04:31:08:287 [main] DEBUG com.shecaicc.cc.dao.ClubDao.insertClub - <==    Updates: 1
-2017-10-31 04:31:08:294 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current relativeAddr is: \upload\item\club\32\2017103104310874517.jpg
-2017-10-31 04:31:08:295 [main] DEBUG com.shecaicc.cc.util.ImageUtil - current complete addr is: D:\shecaicc\image\upload\item\club\32\2017103104310874517.jpg
-2017-10-31 04:31:08:295 [main] DEBUG com.shecaicc.cc.util.ImageUtil - basePath is: /D:/workspace/javaee/CC/target/test-classes/
-2017-10-31 04:31:08:508 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==>  Preparing: UPDATE tb_club SET club_Name=?, club_desc=?, club_addr=?, phone=?, club_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, club_category_id=? WHERE club_id=? 
-2017-10-31 04:31:08:509 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - ==> Parameters: 篮球社(String), 灌篮高手是篮板王(String), 本校区(String), 18812344321(String), \upload\item\club\32\2017103104310874517.jpg(String), 2017-10-31 04:31:08.223(Timestamp), 0(Integer), 审核中(String), 2(Integer), 1(Long), 32(Long)
-2017-10-31 04:31:08:530 [main] DEBUG com.shecaicc.cc.dao.ClubDao.updateClub - <==    Updates: 1
+2017-11-08 00:38:26:089 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==>  Preparing: INSERT INTO tb_person_info(name,gender,email,profile_img,user_type, create_time,last_edit_time,enable_status) VALUES (?,?,?,?, ?,?,?,?) 
+2017-11-08 00:38:26:233 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==> Parameters: 船长(String), 男(String), null, null, 1(Integer), 2017-11-08 00:38:22.743(Timestamp), 2017-11-08 00:38:22.743(Timestamp), 1(Integer)
+2017-11-08 00:38:26:345 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - <==    Updates: 1
+2017-11-08 00:38:26:384 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - ==>  Preparing: SELECT user_id, name, gender, email, profile_img, user_type, create_time, last_edit_time, enable_status FROM tb_person_info WHERE user_id = ? 
+2017-11-08 00:38:26:385 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - ==> Parameters: 1(Long)
+2017-11-08 00:38:26:446 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - <==      Total: 1
+2017-11-08 00:40:54:388 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==>  Preparing: INSERT INTO tb_person_info(name,gender,email,profile_img,user_type, create_time,last_edit_time,enable_status) VALUES (?,?,?,?, ?,?,?,?) 
+2017-11-08 00:40:54:456 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==> Parameters: 船长(String), 男(String), null, null, 1(Integer), 2017-11-08 00:40:53.719(Timestamp), 2017-11-08 00:40:53.719(Timestamp), 1(Integer)
+2017-11-08 00:40:54:839 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - <==    Updates: 1
+2017-11-08 00:40:54:880 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - ==>  Preparing: SELECT user_id, name, gender, email, profile_img, user_type, create_time, last_edit_time, enable_status FROM tb_person_info WHERE user_id = ? 
+2017-11-08 00:40:54:881 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - ==> Parameters: 1(Long)
+2017-11-08 00:40:54:987 [main] DEBUG c.s.cc.dao.PersonInfoDao.queryPersonInfoById - <==      Total: 1
+2017-11-08 00:43:08:583 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==>  Preparing: INSERT INTO tb_wechat_auth(user_id,open_id,create_time) VALUES (?,?,?) 
+2017-11-08 00:43:08:636 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==> Parameters: 1(Long), dafahizhfdhaih(String), 2017-11-08 00:43:08.182(Timestamp)
+2017-11-08 00:43:08:690 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - <==    Updates: 1
+2017-11-08 00:43:08:720 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - ==>  Preparing: SELECT w.wechat_auth_id, w.open_id, w.create_time, p.user_id, p.name, p.gender, p.email, p.profile_img, p.user_type, p.create_time, p.last_edit_time, p.enable_status FROM tb_wechat_auth w LEFT JOIN tb_person_info p ON w.user_id = p.user_id WHERE w.open_id = ? 
+2017-11-08 00:43:08:722 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - ==> Parameters: dafahizhfdhaih(String)
+2017-11-08 00:43:08:773 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - <==      Total: 1
+2017-11-08 00:51:47:741 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==>  Preparing: INSERT INTO tb_person_info(name,gender,email,profile_img,user_type, create_time,last_edit_time,enable_status) VALUES (?,?,?,?, ?,?,?,?) 
+2017-11-08 00:51:47:778 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==> Parameters: 测试一下(String), null, null, null, 1(Integer), 2017-11-08 00:51:47.706(Timestamp), null, 1(Integer)
+2017-11-08 00:51:47:824 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - <==    Updates: 1
+2017-11-08 00:51:47:838 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==>  Preparing: INSERT INTO tb_wechat_auth(user_id,open_id,create_time) VALUES (?,?,?) 
+2017-11-08 00:51:47:849 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==> Parameters: 4(Long), dafahizhfdhaih(String), 2017-11-08 00:51:47.706(Timestamp)
+2017-11-08 00:52:28:479 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==>  Preparing: INSERT INTO tb_person_info(name,gender,email,profile_img,user_type, create_time,last_edit_time,enable_status) VALUES (?,?,?,?, ?,?,?,?) 
+2017-11-08 00:52:28:512 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - ==> Parameters: 测试一下(String), null, null, null, 1(Integer), 2017-11-08 00:52:28.45(Timestamp), null, 1(Integer)
+2017-11-08 00:52:28:549 [main] DEBUG com.shecaicc.cc.dao.PersonInfoDao.insertPersonInfo - <==    Updates: 1
+2017-11-08 00:52:28:555 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==>  Preparing: INSERT INTO tb_wechat_auth(user_id,open_id,create_time) VALUES (?,?,?) 
+2017-11-08 00:52:28:559 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - ==> Parameters: 5(Long), dafahizhfdhaih(String), 2017-11-08 00:52:28.45(Timestamp)
+2017-11-08 00:52:28:632 [main] DEBUG com.shecaicc.cc.dao.WechatAuthDao.insertWechatAuth - <==    Updates: 1
+2017-11-08 00:52:28:665 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - ==>  Preparing: SELECT w.wechat_auth_id, w.open_id, w.create_time, p.user_id, p.name, p.gender, p.email, p.profile_img, p.user_type, p.create_time, p.last_edit_time, p.enable_status FROM tb_wechat_auth w LEFT JOIN tb_person_info p ON w.user_id = p.user_id WHERE w.open_id = ? 
+2017-11-08 00:52:28:666 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - ==> Parameters: dafahizhfdhaih(String)
+2017-11-08 00:52:28:694 [main] DEBUG c.s.cc.dao.WechatAuthDao.queryWechatInfoByOpenId - <==      Total: 1

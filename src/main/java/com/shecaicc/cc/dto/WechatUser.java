@@ -22,7 +22,7 @@ public class WechatUser implements Serializable {
 	private String openId;
 	// 用户昵称
 	@JsonProperty("nickname")
-	private String nikeName;
+	private String nickName;
 	// 性别
 	@JsonProperty("sex")
 	private int sex;
@@ -53,12 +53,12 @@ public class WechatUser implements Serializable {
 		this.openId = openId;
 	}
 
-	public String getNikeName() {
-		return nikeName;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setNikeName(String nikeName) {
-		this.nikeName = nikeName;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public int getSex() {
